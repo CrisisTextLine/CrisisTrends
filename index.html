@@ -95,7 +95,7 @@ $('.smooth-scroll').click(function (e) {
 });
 
 var incrementer, baseCount;
-$.getJSON('/counter/messages.json', function (data) {
+$.getJSON('counter/messages.json', function (data) {
     var timesMatrix = data['averages'];
     var countFrom = new Date(data['from']);
     var now = new Date();
