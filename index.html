@@ -136,7 +136,7 @@ function increment() {
     var seconds = (d.getUTCMinutes() * 60) + d.getUTCSeconds();
     count = Math.round(baseCount + (seconds * incrementer));
 
-    $('#counter').text(count.toLocaleString());
+    $('#counter').text(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
     return count;
 }
 
