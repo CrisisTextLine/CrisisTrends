@@ -1,0 +1,44 @@
+.navbar .navbar-brand {
+  height: auto;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+}
+@media (max-width: 500px) {
+  .navbar .navbar-brand {
+    font-size: 2em;
+  }
+  .navbar .navbar-brand img {
+    height: 35px;
+  }
+}
+.navbar .navbar-brand span {
+  white-space: nowrap;
+}
+.navbar .navbar-brand img {
+  vertical-align: text-bottom;
+}
+.navbar .navbar-brand.tiny {
+  height: 50px;
+  font-size: 2em;
+}
+.navbar .navbar-brand.tiny img {
+  max-height: 100%;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+body {
+  padding-top: 50px;
+}
+
+.navbar-right {
+  margin-top: 15px;
+}
+@media (max-width: 768px) {
+  .navbar-right {
+    display: none;
+  }
+}

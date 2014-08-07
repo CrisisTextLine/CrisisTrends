@@ -1,0 +1,45 @@
+.navbar .navbar-brand {
+    @media (max-width: 500px) {
+        font-size: 2em;
+        img {
+            height: 35px;
+        }
+    }
+
+    height: auto;
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+
+    span {
+        white-space: nowrap;
+    }
+
+    img {
+        vertical-align: text-bottom;
+    }
+
+    &.tiny {
+        img {
+            max-height: 100%;
+        }
+
+        height: 50px;
+        font-size: 2em;
+    }
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+body {
+    padding-top: 50px;
+}
+
+.navbar-right {
+    margin-top: 15px;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}

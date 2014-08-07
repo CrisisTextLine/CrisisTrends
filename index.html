@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <link href="css/print.css" media="print" rel="stylesheet" type="text/css" />
+    <!--[if IE]>
+        <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Analytics -->
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-ed89783-6fde-f735-c4a5-d1d23cc772e8", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><img src="http://www.crisistextline.org/logo.png" height="50" /> <span>Crisis Trends</span></a>
+          </div>
+          <div class="navbar-right">
+              <span class='st_facebook_large' displayText='Facebook'></span>
+              <span class='st_twitter_large' displayText='Tweet'></span>
+              <span class='st_linkedin_large' displayText='LinkedIn'></span>
+              <span class='st_email_large' displayText='Email'></span>
+          </div>
+      </div>
+    </nav>
+
+<div class="jumbotron teen">
+    <div class="container">
+        <div class="col-sm-offset-7 text">
+            <p>Young people experience different crises based on location, time of day, and more.</p>
+            <a class="btn btn-primary btn-lg btn-right center-block smooth-scroll" href="#trends">Explode Trends</a>
+        </div>
+    </div>
+</div> 
+
+<div class="content" id="trends">
+    <div class="container">
+        <ul class="nav nav-pills" role="tablist">
+            <li class="active"><a href="#state" data-toggle="tab"><img src="images/us.svg" />Crises by State</a></li>
+            <li><a href="#week" data-toggle="tab"><img src="images/month.svg" />Crises by Week</a></li>
+            <li><a href="#time" data-toggle="tab"><img src="images/clock.svg" />Crises by Time of Day</a></li>
+            <li><a href="#day" data-toggle="tab"><img src="images/week.svg" />Crises by Day of Week</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="state" data-url="images/state.png">
+                <img src="images/state.png" />
+            </div>
+
+            <div class="tab-pane" id="week" data-url="images/week.png">
+                <img />
+            </div>
+
+            <div class="tab-pane" id="time" data-url="images/hour_of_day.png">
+                <img />
+            </div>
+
+            <div class="tab-pane" id="day" data-url="images/day_of_week.png">
+                <img />
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Here's some action items...</h1>
+        <p>Some content?</p>
+    </div>
+
+</div>
+
+<!--------------------
+ ------ scripts ------
+ --------------------->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    $tabContent = $(e.target.getAttribute('href'));
+    $tabContent.find('img')
+        .attr('src', $tabContent.data('url'))
+        .on('load', function () {
+            $(this).css('height', 'auto');
+        })
+    ;
+});
+
+$(window).scroll(function () {
+    var st = $(window).scrollTop();
+    var cutoff = $('.teen').outerHeight();
+
+    if (st > cutoff) {
+        $('.navbar-brand').addClass('tiny');
+    } else {
+        $('.navbar-brand').removeClass('tiny');
+    }
+});
+
+$('.smooth-scroll').click(function (e) {
+    e.preventDefault();
+
+    var $to = $($(this).attr('href'));
+    $('html, body').animate({
+        scrollTop: $to.offset().top
+    });
+});
+
+</script>
+</body>
+</html>

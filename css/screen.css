@@ -1,0 +1,136 @@
+.navbar .navbar-brand {
+  height: auto;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+}
+@media (max-width: 500px) {
+  .navbar .navbar-brand {
+    font-size: 2em;
+  }
+  .navbar .navbar-brand img {
+    height: 35px;
+  }
+}
+.navbar .navbar-brand span {
+  white-space: nowrap;
+}
+.navbar .navbar-brand img {
+  vertical-align: text-bottom;
+}
+.navbar .navbar-brand.tiny {
+  height: 50px;
+  font-size: 2em;
+}
+.navbar .navbar-brand.tiny img {
+  max-height: 100%;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+body {
+  padding-top: 50px;
+}
+
+.navbar-right {
+  margin-top: 15px;
+}
+@media (max-width: 768px) {
+  .navbar-right {
+    display: none;
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.content {
+  background: white;
+  padding-top: 5em;
+}
+.content img {
+  height: 100%;
+  max-width: 100%;
+  max-height: calc(100% - 80px);
+}
+.content .tab-pane {
+  height: calc(100% - 80px - 42px);
+  text-align: center;
+  margin-top: 3em;
+}
+.content .nav-pills li {
+  width: 25%;
+  margin: 0;
+}
+.content .nav-pills a {
+  text-align: center;
+}
+.content .nav-pills a img {
+  margin: 0 auto;
+  display: block;
+}
+
+.teen {
+  font-size: 3em;
+  position: relative;
+  background: transparent;
+  min-height: 100%;
+  color: white;
+}
+.teen:before {
+  content: "";
+  background: url("../images/boy.jpg");
+  background-size: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.teen .text {
+  margin-top: 18%;
+}
+.teen .text p {
+  font-size: .8em;
+  font-weight: 400;
+}
+@media (max-width: 768px) {
+  .teen .text {
+    position: absolute;
+    bottom: 1em;
+    left: 0;
+    margin-top: 50%;
+    padding: 0 15px;
+  }
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: #dd0000;
+}
+
+.btn-primary {
+  background-color: #dd0000;
+  border-color: #cc0000;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background-color: red;
+  border-color: #dd0000;
+}
+
+a {
+  color: #dd0000;
+}
+
+a:hover, a:focus {
+  color: #ff0000;
+}

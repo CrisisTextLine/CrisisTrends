@@ -1,0 +1,33 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.content {
+  background: white;
+  padding-top: 5em;
+}
+.content img {
+  height: 100%;
+  max-width: 100%;
+  max-height: calc(100% - 80px);
+}
+.content .tab-pane {
+  height: calc(100% - 80px - 42px);
+  text-align: center;
+  margin-top: 3em;
+}
+.content .nav-pills li {
+  width: 25%;
+  margin: 0;
+}
+.content .nav-pills a {
+  text-align: center;
+}
+.content .nav-pills a img {
+  margin: 0 auto;
+  display: block;
+}

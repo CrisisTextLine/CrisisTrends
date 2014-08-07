@@ -1,0 +1,36 @@
+html { height: 100%; }
+body {
+    height: 100%;
+}
+
+.content {
+    background: white;
+    padding-top: 5em;
+
+    img {
+        height: 100%;
+        max-width: 100%;
+        max-height: calc(100% - 80px);
+    }
+
+    .tab-pane {
+        height: calc(100% - 80px - 42px);
+        text-align: center;
+        margin-top: 3em;
+    }
+
+    .nav-pills {
+        li {
+            width: 25%;
+            margin: 0;
+        }
+        a {
+            text-align: center;
+
+            img {
+                margin: 0 auto;
+                display: block;
+            }
+        }
+    }
+}

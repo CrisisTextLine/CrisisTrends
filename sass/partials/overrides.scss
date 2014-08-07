@@ -1,0 +1,21 @@
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    background-color: #dd0000;
+}
+
+.btn-primary {
+    background-color: #dd0000;
+    border-color: #cc0000;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    background-color: red;
+    border-color: #dd0000;
+}
+
+a {
+    color: #dd0000;
+}
+
+a:hover, a:focus {
+    color: #ff0000;
+}
