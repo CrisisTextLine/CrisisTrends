@@ -8,7 +8,6 @@ body {
 
 .content {
   background: white;
-  padding-top: 5em;
 }
 .content img {
   height: 100%;
@@ -24,10 +23,24 @@ body {
   width: 25%;
   margin: 0;
 }
+@media (max-width: 768px) {
+  .content .nav-pills li {
+    width: 50%;
+  }
+}
 .content .nav-pills a {
   text-align: center;
 }
 .content .nav-pills a img {
   margin: 0 auto;
   display: block;
+}
+
+.counter {
+  text-align: center;
+}
+.counter h1 {
+  font-size: 6em;
+  font-weight: 500;
+  color: #dd0000;
 }

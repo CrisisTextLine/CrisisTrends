@@ -7,7 +7,7 @@
     }
 
     height: auto;
-    color: white;
+    color: black;
     font-size: 3em;
     font-weight: bold;
 
@@ -19,22 +19,12 @@
         vertical-align: text-bottom;
     }
 
-    &.tiny {
-        img {
-            max-height: 100%;
-        }
-
-        height: 50px;
-        font-size: 2em;
-    }
 }
 
 .navbar {
     margin-bottom: 0;
-}
-
-body {
-    padding-top: 50px;
+    background: white;
+    border: 0px;
 }
 
 .navbar-right {

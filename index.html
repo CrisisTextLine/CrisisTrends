@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
               <a class="navbar-brand" href="#"><img src="http://www.crisistextline.org/logo.png" height="50" /> <span>Crisis Trends</span></a>
@@ -29,16 +29,12 @@
       </div>
     </nav>
 
-<div class="jumbotron teen">
-    <div class="container">
-        <div class="col-sm-offset-7 text">
-            <p>Young people experience different crises based on location, time of day, and more.</p>
-            <a class="btn btn-primary btn-lg btn-right center-block smooth-scroll" href="#trends">Explode Trends</a>
-        </div>
-    </div>
-</div> 
 
 <div class="content" id="trends">
+    <div class="container counter">
+        <h1 id="counter">2,800,000</h1>
+        <p class="lead">messages exchanged since August 1, 2013</p>
+    </div>
     <div class="container">
         <ul class="nav nav-pills" role="tablist">
             <li class="active"><a href="#state" data-toggle="tab"><img src="images/us.svg" />Crises by State</a></li>
@@ -49,7 +45,7 @@
 
         <div class="tab-content">
             <div class="tab-pane active" id="state" data-url="images/state.png">
-                <img src="images/state.png" />
+                <img src="images/state.png" style="height: auto" />
             </div>
 
             <div class="tab-pane" id="week" data-url="images/week.png">
@@ -89,17 +85,6 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     ;
 });
 
-$(window).scroll(function () {
-    var st = $(window).scrollTop();
-    var cutoff = $('.teen').outerHeight();
-
-    if (st > cutoff) {
-        $('.navbar-brand').addClass('tiny');
-    } else {
-        $('.navbar-brand').removeClass('tiny');
-    }
-});
-
 $('.smooth-scroll').click(function (e) {
     e.preventDefault();
 
@@ -108,6 +93,54 @@ $('.smooth-scroll').click(function (e) {
         scrollTop: $to.offset().top
     });
 });
+
+var incrementer, baseCount;
+$.getJSON('/counter/messages.json', function (data) {
+    var timesMatrix = data['averages'];
+    var countFrom = new Date(data['from']);
+    var now = new Date();
+
+    baseCount = data['baseCount'];
+
+    var daysMatrix = {};
+    for (var i in timesMatrix) {
+        daysMatrix[i] = 0;
+        for (var j in timesMatrix[i]) {
+            daysMatrix[i] += timesMatrix[i][j];
+        }
+    }
+
+    // increment by day first (faster)
+    var start = countFrom.getTime();
+    var interval = 24 * 60 * 60 * 1000;
+    while ((start + interval) < now.getTime()) {
+        start += interval;
+        var day = new Date(start).getUTCDay() + 1;
+        baseCount += daysMatrix[day];
+    }
+    countFrom = new Date(start);
+
+    // now that we're up to today, increment by hour
+    var hours = Math.floor((new Date().getTime() - countFrom.getTime()) / 1000 / 60 / 60);
+    var today = now.getUTCDay() + 1;
+
+    for (var i = i; i < now.getUTCHours(); i++) {
+        baseCount += timesMatrix[today][i];
+    }
+
+    incrementer = timesMatrix[today][now.getUTCHours()] / (60 * 60);
+});
+
+function increment() {
+    var d = new Date();
+    var seconds = (d.getUTCMinutes() * 60) + d.getUTCSeconds();
+    count = Math.round(baseCount + (seconds * incrementer));
+
+    $('#counter').text(count.toLocaleString());
+    return count;
+}
+
+setInterval(increment, 1000);
 
 </script>
 </body>
