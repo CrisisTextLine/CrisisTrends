@@ -18,13 +18,6 @@
 .navbar .navbar-brand img {
   vertical-align: text-bottom;
 }
-.navbar .navbar-brand.tiny {
-  height: 50px;
-  font-size: 2em;
-}
-.navbar .navbar-brand.tiny img {
-  max-height: 100%;
-}
 
 .navbar {
   margin-bottom: 0;
@@ -81,6 +74,7 @@ body {
 
 .counter {
   text-align: center;
+  margin-bottom: 4em;
 }
 .counter h1 {
   font-size: 6em;

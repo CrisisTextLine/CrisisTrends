@@ -38,6 +38,7 @@ body {
 
 .counter {
   text-align: center;
+  margin-bottom: 4em;
 }
 .counter h1 {
   font-size: 6em;
