@@ -34,39 +34,79 @@ $('.smooth-scroll').click(function (e) {
  ***** WORD CLOUD *****
  **********************/
 
-var fill = d3.scale.category20();
+var w = 960,
+    h = 600;
 
-d3.layout.cloud().size([300, 300])
-    .words([
-        'Hello', 'world', 'normally', 'you', 'want', 'more', 'words',
-        'than', 'this'].map(function(d) {
-            return {text: d, size: 10 + Math.random() * 90};
-        }))
-    .padding(5)
-    .rotate(function() { return ~~(Math.random() * 3) * 90 - 90; })
-    .font('Impact')
-    .fontSize(function(d) { return d.size; })
-    .on('end', draw)
-    .start();
+var svg = d3.select('#wordcloud').append('svg')
+    .attr('width', w)
+    .attr('height', h);
 
-    function draw(words) {
-        d3.select('#wordcloud').append('svg')
-            .attr('width', 300)
-            .attr('height', 300)
-            .append('g')
-            .attr('transform', 'translate(150,150)')
-            .selectAll('text')
-            .data(words)
-            .enter().append('text')
+d3.json('data/suicide.js')
+
+var vis;
+function doViz(words) {
+    svg.selectAll('g').remove();
+
+    vis = svg
+        .append('g')
+        .attr('transform', 'translate(' + [w >> 1, h >> 1] + ')');
+
+    var max = 0;
+    var min = 1000000;
+
+    for (var i in words) {
+        if (words[i].c > max) max = words[i].c;
+        console.log('current min: ' + min);
+        console.log('current word: ' + words[i].c);
+        if (words[i].c < min) min = words[i].c;
+    }
+
+    var sizeScale = d3.scale.linear().range([10, 100]).domain([min, max]);
+
+    console.log(min);
+    console.log(max);
+    console.log(sizeScale(min));
+    console.log(sizeScale(max));
+
+    d3.layout.cloud()
+        .size([w, h])
+        .words(words)
+        .rotate(function() { return 0; })//~~(Math.random() * 3) * 90 - 90; })
+        .font('Impact')
+        .fontSize(function(d) { return sizeScale(d.c); })
+        .text(function(d) { return d.w; })
+        //.spiral('rectangular')
+        .on('end', draw)
+        .start();
+}
+
+function randomColor() {
+    return 'rgba(0,0,0,' + (Math.floor(Math.random() * 155) + 100) + ')';
+}
+
+function draw(words) {
+    vis
+        .selectAll('text')
+        .data(words)
+        .enter().append('text')
+            .attr('text-anchor', 'middle')
             .style('font-size', function(d) { return d.size + 'px'; })
             .style('font-family', 'Impact')
-            .style('fill', function(d, i) { return fill(i); })
+            .style('fill', function(d, i) { return 'rgba(0,0,0,' + (Math.random()*.50 + .25) + ')'; })
             .attr('text-anchor', 'middle')
             .attr('transform', function(d) {
                 return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
             })
-            .text(function(d) { return d.text; });
-    }
+            .text(function(d) { return d.w; })
+    ;
+}
+
+$('#wordcloud-select').change(function () {
+    d3.json('data/words/' + $(this).val() + '.json', function (error, json) {
+        if (error) return console.warn(error);
+        doViz(json);
+    });
+});
 
 /*************************
  ***** MESSAGE COUNT *****
@@ -78,7 +118,7 @@ var incrementer, baseCount;
  * in the system based on historical trends on # of messages
  * per hour based on day of the week.
  */
-$.getJSON('counter/messages.json', function (data) {
+$.getJSON('data/messages.json', function (data) {
     var timesMatrix = data['averages'];
     var countFrom = new Date(data['from']);
     var now = new Date();
