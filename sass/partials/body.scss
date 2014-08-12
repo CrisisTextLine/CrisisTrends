@@ -1,3 +1,5 @@
+@import "compass/css3/filter";
+
 html { height: 100%; }
 body {
     height: 100%;
@@ -45,5 +47,14 @@ body {
         font-size: 6em;
         font-weight: 500;
         color: #dd0000;
+    }
+}
+
+.bio-photo {
+    text-align: center;
+    img {
+        border-radius: 100px;
+        @include filter(grayscale(100%));
+        box-shadow: 0 0 20px -5px black;
     }
 }

@@ -37,23 +37,23 @@
     </div>
     <div class="container">
         <ul class="nav nav-pills" role="tablist">
-            <li class="active"><a href="#state" data-toggle="tab"><img src="images/us.svg" />Crises by State</a></li>
-            <li><a href="#week" data-toggle="tab"><img src="images/month.svg" />Crises by Week</a></li>
-            <li><a href="#time" data-toggle="tab"><img src="images/clock.svg" />Crises by Time of Day</a></li>
+            <li class="active"><a href="#time" data-toggle="tab"><img src="images/clock.svg" />Crises by Time of Day</a></li>
             <li><a href="#day" data-toggle="tab"><img src="images/week.svg" />Crises by Day of Week</a></li>
+            <li><a href="#week" data-toggle="tab"><img src="images/month.svg" />Crises by Week</a></li>
+            <li><a href="#state" data-toggle="tab"><img src="images/us.svg" />Crises by State</a></li>
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane active" id="state" data-url="images/state.png">
-                <img src="images/state.png" style="height: auto" />
+            <div class="tab-pane" id="state" data-url="images/state.png">
+                <img />
             </div>
 
             <div class="tab-pane" id="week" data-url="images/week.png">
                 <img />
             </div>
 
-            <div class="tab-pane" id="time" data-url="images/hour_of_day.png">
-                <img />
+            <div class="tab-pane active" id="time" data-url="images/hour_of_day.png">
+                <img src="images/hour_of_day.png" style="height: auto" />
             </div>
 
             <div class="tab-pane" id="day" data-url="images/day_of_week.png">
@@ -62,35 +62,83 @@
         </div>
     </div>
 
-    <div class="container">
-        <h1>Word Cloud</h1>
-        <select id="wordcloud-select">
-            <option value="depressed">Depression / sadness</option>
-            <option value="suicide">Suicide (see Risk Assessment)</option>
-            <option value="self_harm">Self harm</option>
-            <option value="family">Family</option>
-            <option value="stress">Stress</option>
-            <option value="relationship">Romantic relationships / dating</option>
-            <option value="isolated">Isolation / loneliness</option>
-            <option value="anxiety">Anxiety</option>
-            <option value="friend">Friends</option>
-            <option value="school">School-related</option>
-            <option value="abuse">Physical abuse or neglect</option>
-            <option value="substance">Substance abuse / addiction</option>
-            <option value="bereavement">Bereavement / loss</option>
-            <option value="bully">Bullying</option>
-            <option value="medical">Medical / health concern</option>
-            <option value="sexual_abuse">Sexual abuse</option>
-            <option value="lgbtq">LGBTQ</option>
-            <option value="eating">Eating disorder</option>
-            <option value="3rd_party">3rd party</option>
-            <option value="other">Other</option>
-        </select>
-        <div id="wordcloud">
+    <div class="jumbotron">
+        <div class="container center-container">
+            <p>Select a crisis type to see the top 50 words used.</p>
+            <select id="wordcloud-select" class="form-control input-lg">
+                <option value="3rd_party">3rd party</option>
+                <option value="anxiety">Anxiety</option>
+                <option value="bereavement">Bereavement / loss</option>
+                <option value="bully">Bullying</option>
+                <option value="depressed">Depression / sadness</option>
+                <option value="eating">Eating disorder</option>
+                <option value="family">Family</option>
+                <option value="friend">Friends</option>
+                <option value="isolated">Isolation / loneliness</option>
+                <option value="lgbtq">LGBTQ</option>
+                <option value="medical">Medical / health concern</option>
+                <option value="abuse">Physical abuse or neglect</option>
+                <option value="relationship">Romantic relationships / dating</option>
+                <option value="school">School-related</option>
+                <option value="self_harm">Self harm</option>
+                <option value="sexual_abuse">Sexual abuse</option>
+                <option value="stress">Stress</option>
+                <option value="substance">Substance abuse / addiction</option>
+                <option value="suicide" selected>Suicide</option>
+                <option value="other">Other</option>
+            </select>
+            <div id="wordcloud">
 
+            </div>
         </div>
     </div>
 
+    <div class="jumbotron">
+        <div class="container text-center">
+            <p>All data used to generate this page is anonymized and stripped of any personally identifiable information.</p>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-red">
+        <div class="container">
+            <h1>Get in touch</h1>
+            <div class="col-sm-4 col-md-3 bio-photo"><img src="images/bob.jpg" /></div>
+
+            <form action="email.php" method="post">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form-name">Name</label>
+                        <input type="text" name="name" class="form-control" id="form-name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Email address</label>
+                        <input type="email" name="email" class="form-control" id="form-email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="form-subject">Subject</label>
+                        <input type="text" name="subject" class="form-control" id="form-subject">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="form-message">&nbsp;</label>
+                        <textarea name="message" cols="40" rows="6" class="form-control" id="form-message"></textarea>
+                    </div>
+                    <input type="submit" value="Send" class="btn form-control">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="email-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body alert-success">
+                Email sent successfully.
+            </div>
+        </div>
+    </div>
 </div>
 
 <!--------------------

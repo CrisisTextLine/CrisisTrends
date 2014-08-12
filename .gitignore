@@ -1,3 +1,5 @@
 .DS_Store
 .sass-cache
 *.zip
+vendor
+config.php

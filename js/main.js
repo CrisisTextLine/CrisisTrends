@@ -2,6 +2,12 @@
  ***** INIT *****
  ****************/
 
+if (window.location.search.indexOf('success') >= 0) {
+    $('#email-modal').modal('show');
+    setTimeout(function () {
+       $('#email-modal').modal('hide')
+    }, 3000);
+}
 
 /***************
  ***** TABS ****
@@ -32,7 +38,8 @@ $('.smooth-scroll').click(function (e) {
  ***** WORD CLOUD *****
  **********************/
 
-var w = 960,
+var maxWidth = $('#wordcloud').width();
+var w = (maxWidth > 960) ? 960 : maxWidth,
     h = 600;
 
 var svg = d3.select('#wordcloud').append('svg')
@@ -54,12 +61,11 @@ function doViz(words) {
 
     for (var i in words) {
         if (words[i].c > max) max = words[i].c;
-        console.log('current min: ' + min);
-        console.log('current word: ' + words[i].c);
         if (words[i].c < min) min = words[i].c;
     }
 
-    var sizeScale = d3.scale.linear().range([10, 100]).domain([min, max]);
+    var maxscale = d3.scale.linear().range([50, 120]).domain([10, 960])(w);
+    var sizeScale = d3.scale.linear().range([12, maxscale]).domain([min, max]);
 
     d3.layout.cloud()
         .size([w, h])
@@ -77,7 +83,13 @@ function randomColor() {
     return 'rgba(0,0,0,' + (Math.floor(Math.random() * 155) + 100) + ')';
 }
 
-function draw(words) {
+function draw(words, bounds) {
+    scale = bounds ? Math.min(
+        w / Math.abs(bounds[1].x - w / 2),
+        w / Math.abs(bounds[0].x - w / 2),
+        h / Math.abs(bounds[1].y - h / 2),
+        h / Math.abs(bounds[0].y - h / 2)) / 2 : 1;
+
     vis
         .selectAll('text')
         .data(words)
@@ -92,6 +104,8 @@ function draw(words) {
             })
             .text(function(d) { return d.w; })
     ;
+
+    vis.attr('transform', 'translate(' + [w >> 1, h >> 1] + ')scale(' + scale + ')');
 }
 
 $('#wordcloud-select').change(function () {

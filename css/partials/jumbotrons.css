@@ -33,3 +33,12 @@
     padding: 0 15px;
   }
 }
+
+.jumbotron-red {
+  background: #880000;
+  color: white;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}

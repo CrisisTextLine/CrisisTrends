@@ -1,0 +1,6 @@
+<?php
+
+$config = array(
+    'email_user' => 'blah',
+    'email_pass' => 'blah',
+);

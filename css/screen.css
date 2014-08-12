@@ -82,6 +82,16 @@ body {
   color: #dd0000;
 }
 
+.bio-photo {
+  text-align: center;
+}
+.bio-photo img {
+  border-radius: 100px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  box-shadow: 0 0 20px -5px black;
+}
+
 .teen {
   font-size: 3em;
   position: relative;
@@ -118,6 +128,15 @@ body {
   }
 }
 
+.jumbotron-red {
+  background: #880000;
+  color: white;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   background-color: #dd0000;
 }
@@ -138,4 +157,16 @@ a {
 
 a:hover, a:focus {
   color: #ff0000;
+}
+
+.center-container {
+  text-align: center;
+}
+
+.container-dark {
+  background: #ccc;
+}
+
+#wordcloud {
+  margin-top: 1em;
 }
