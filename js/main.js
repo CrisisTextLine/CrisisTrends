@@ -101,6 +101,8 @@ $('#wordcloud-select').change(function () {
     });
 });
 
+$('#wordcloud-select').trigger('change');
+
 /*************************
  ***** MESSAGE COUNT *****
  *************************/
