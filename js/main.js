@@ -1,8 +1,6 @@
 /****************
  ***** INIT *****
  ****************/
-increment();
-setInterval(increment, 1000);
 
 
 /***************
@@ -62,11 +60,6 @@ function doViz(words) {
     }
 
     var sizeScale = d3.scale.linear().range([10, 100]).domain([min, max]);
-
-    console.log(min);
-    console.log(max);
-    console.log(sizeScale(min));
-    console.log(sizeScale(max));
 
     d3.layout.cloud()
         .size([w, h])
@@ -152,6 +145,9 @@ $.getJSON('data/messages.json', function (data) {
     }
 
     incrementer = timesMatrix[today][now.getUTCHours()] / (60 * 60);
+
+    increment();
+    setInterval(increment, 1000);
 });
 
 function increment() {
