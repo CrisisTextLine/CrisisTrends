@@ -9,3 +9,8 @@
 #wordcloud {
   margin-top: 1em;
 }
+
+#wordcloud-select {
+  width: auto;
+  margin: 0 auto;
+}

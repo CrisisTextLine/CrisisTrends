@@ -18,6 +18,13 @@ body {
         height: calc(100% - 80px - 42px);
         text-align: center;
         margin-top: 3em;
+        margin-bottom: 3em;
+        overflow: hidden;
+
+        iframe {
+            border: 0;
+            margin-top: -50px;
+        }
     }
 
     .nav-pills {

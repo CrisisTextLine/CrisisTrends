@@ -37,27 +37,27 @@
     </div>
     <div class="container">
         <ul class="nav nav-pills" role="tablist">
-            <li class="active"><a href="#time" data-toggle="tab"><img src="images/clock.svg" />Crises by Time of Day</a></li>
+            <li><a href="#time" data-toggle="tab" class="start"><img src="images/clock.svg" />Crises by Time of Day</a></li>
             <li><a href="#day" data-toggle="tab"><img src="images/week.svg" />Crises by Day of Week</a></li>
             <li><a href="#week" data-toggle="tab"><img src="images/month.svg" />Crises by Week</a></li>
             <li><a href="#state" data-toggle="tab"><img src="images/us.svg" />Crises by State</a></li>
         </ul>
 
         <div class="tab-content">
-            <div class="tab-pane" id="state" data-url="images/state.png">
-                <img />
+            <div class="tab-pane" id="state" data-vis="StateMap" data-height="585">
+                <iframe></iframe>
             </div>
 
-            <div class="tab-pane" id="week" data-url="images/week.png">
-                <img />
+            <div class="tab-pane" id="week" data-vis="OverTime" data-height="585">
+                <iframe></iframe>
             </div>
 
-            <div class="tab-pane active" id="time" data-url="images/hour_of_day.png">
-                <img src="images/hour_of_day.png" style="height: auto" />
+            <div class="tab-pane" id="time" data-vis="HourofDay" data-height="585">
+                <iframe src="" scrolling="no" width="960" height="585"></iframe>
             </div>
 
-            <div class="tab-pane" id="day" data-url="images/day_of_week.png">
-                <img />
+            <div class="tab-pane" id="day" data-vis="DayofWeek" data-height="585">
+                <iframe></iframe>
             </div>
         </div>
     </div>

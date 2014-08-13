@@ -1,25 +1,24 @@
-/****************
- ***** INIT *****
- ****************/
-
-if (window.location.search.indexOf('success') >= 0) {
-    $('#email-modal').modal('show');
-    setTimeout(function () {
-       $('#email-modal').modal('hide')
-    }, 3000);
-}
-
 /***************
  ***** TABS ****
  ***************/
+var tableauBase = 'http://public.tableausoftware.com/views/publicdata/{{VIZ}}?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableausoftware.com%2F&:tabs=no&:toolbar=no&:animate_transition=yes&:display_static_image=no&:display_spinner=yes&:display_overlay=yes&:display_count=yes&:loadOrderID=0';
+
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-    $tabContent = $(e.target.getAttribute('href'));
-    $tabContent.find('img')
-        .attr('src', $tabContent.data('url'))
-        .on('load', function () {
-            $(this).css('height', 'auto');
-        })
-    ;
+    var $tabContent = $(e.target.getAttribute('href'));
+    var $frame = $tabContent.find('iframe');
+    var url = tableauBase.replace('{{VIZ}}', $tabContent.data('vis'));
+
+    if ($frame.attr('src') !== url) {
+
+        $frame
+            .attr('src', url)
+            .attr('height', $tabContent.data('height'))
+            .attr('scrolling', 'no')
+            .attr('width', '960')
+            .on('load', function () {
+
+            });
+    }
 });
 
 /***************************
@@ -174,3 +173,19 @@ function increment() {
     $('#counter').text(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
     return count;
 }
+
+
+
+
+/****************
+ ***** INIT *****
+ ****************/
+
+if (window.location.search.indexOf('success') >= 0) {
+    $('#email-modal').modal('show');
+    setTimeout(function () {
+       $('#email-modal').modal('hide')
+    }, 3000);
+}
+
+$('.nav-pills .start').click();
