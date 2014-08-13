@@ -66,26 +66,24 @@
         <div class="container center-container">
             <p>Select a crisis type to see the top 50 words used.</p>
             <select id="wordcloud-select" class="form-control input-lg">
-                <option value="3rd_party">3rd party</option>
                 <option value="anxiety">Anxiety</option>
-                <option value="bereavement">Bereavement / loss</option>
+                <option value="bereavement">Bereavement</option>
                 <option value="bully">Bullying</option>
-                <option value="depressed">Depression / sadness</option>
-                <option value="eating">Eating disorder</option>
-                <option value="family">Family</option>
-                <option value="friend">Friends</option>
-                <option value="isolated">Isolation / loneliness</option>
-                <option value="lgbtq">LGBTQ</option>
-                <option value="medical">Medical / health concern</option>
-                <option value="abuse">Physical abuse or neglect</option>
-                <option value="relationship">Romantic relationships / dating</option>
-                <option value="school">School-related</option>
+                <option value="depressed">Depression</option>
+                <option value="eating">Eating disorders</option>
+                <option value="family">Family Issues</option>
+                <option value="friend">Friend Issues</option>
+                <option value="medical">Health concerns</option>
+                <option value="isolated">Isolation</option>
+                <option value="lgbtq">LGBTQ Issues</option>
+                <option value="abuse">Physical abuse</option>
+                <option value="relationship">Relationship Issues</option>
+                <option value="school">School Problems</option>
                 <option value="self_harm">Self harm</option>
                 <option value="sexual_abuse">Sexual abuse</option>
                 <option value="stress">Stress</option>
-                <option value="substance">Substance abuse / addiction</option>
-                <option value="suicide" selected>Suicide</option>
-                <option value="other">Other</option>
+                <option value="substance">Substance abuse</option>
+                <option value="suicide" selected>Suicidal Thoughts</option>
             </select>
             <div id="wordcloud">
 
@@ -122,7 +120,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="form-message">&nbsp;</label>
-                        <textarea name="message" cols="40" rows="6" class="form-control" id="form-message"></textarea>
+                        <textarea placeholder="Send us a message..." name="message" cols="40" rows="6" class="form-control" id="form-message"></textarea>
                     </div>
                     <input type="submit" value="Send" class="btn form-control">
                 </div>

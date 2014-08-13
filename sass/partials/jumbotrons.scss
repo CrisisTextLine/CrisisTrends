@@ -40,8 +40,13 @@
 }
 
 .jumbotron-red {
-    background: #880000;
+    background: #333;
     color: white;
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: .5em;
+    }
 }
 
 .jumbotron {

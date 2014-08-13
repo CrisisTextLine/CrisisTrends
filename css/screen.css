@@ -93,9 +93,7 @@ body {
 }
 .bio-photo img {
   border-radius: 100px;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  box-shadow: 0 0 20px -5px black;
+  box-shadow: 0 0 15px -5px black;
 }
 
 .teen {
@@ -135,8 +133,12 @@ body {
 }
 
 .jumbotron-red {
-  background: #880000;
+  background: #333;
   color: white;
+}
+.jumbotron-red h1 {
+  margin-top: 0;
+  margin-bottom: .5em;
 }
 
 .jumbotron {

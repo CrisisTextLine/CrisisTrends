@@ -61,7 +61,6 @@ body {
     text-align: center;
     img {
         border-radius: 100px;
-        @include filter(grayscale(100%));
-        box-shadow: 0 0 20px -5px black;
+        box-shadow: 0 0 15px -5px black;
     }
 }
