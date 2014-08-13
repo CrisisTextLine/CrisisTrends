@@ -183,3 +183,40 @@ a:hover, a:focus {
   width: auto;
   margin: 0 auto;
 }
+
+.loading {
+  opacity: .2;
+}
+
+#quote {
+  background-color: #d00;
+  color: #fff;
+  margin-left: 80px;
+  border-radius: 20px 20px 20px 20px;
+  margin: 2em auto;
+  padding: 15px 20px;
+  position: relative;
+  width: 75%;
+}
+#quote a {
+  color: white;
+  font-size: 21px;
+}
+#quote p {
+  margin: 0;
+  font-weight: 400;
+}
+#quote:before {
+  box-sizing: content-box;
+  border-color: #d00;
+  border-radius: 50% 50% 50% 50%;
+  border-style: solid;
+  border-width: 0 20px;
+  bottom: 0;
+  clip: rect(20px, 35px, 42px, 0px);
+  content: " ";
+  height: 40px;
+  position: absolute;
+  right: -50px;
+  width: 30px;
+}

@@ -39,7 +39,7 @@ $('.smooth-scroll').click(function (e) {
 
 var maxWidth = $('#wordcloud').width();
 var w = (maxWidth > 960) ? 960 : maxWidth,
-    h = 600;
+    h = 500;
 
 var svg = d3.select('#wordcloud').append('svg')
     .attr('width', w)
@@ -107,14 +107,35 @@ function draw(words, bounds) {
     vis.attr('transform', 'translate(' + [w >> 1, h >> 1] + ')scale(' + scale + ')');
 }
 
-$('#wordcloud-select').change(function () {
-    d3.json('data/words/' + $(this).val() + '.json', function (error, json) {
-        if (error) return console.warn(error);
-        doViz(json);
-    });
+var quotes;
+$.getJSON('data/quotes.json', function (data) {
+    quotes = data;
 });
 
-$('#wordcloud-select').trigger('change');
+$('#wordcloud-select').change(function () {
+    var issue = $(this).val();
+    $('#wordcloud, #quote').addClass('loading');
+
+    d3.json('data/words/' + issue + '.json', function (error, json) {
+        if (error) return console.warn(error);
+        if (quotes !== undefined) {
+            $('#quote p').text(quotes[issue]);
+        }
+
+        doViz(json);
+        $('#wordcloud, #quote').removeClass('loading');
+        $('#quote span').text($('#wordcloud-select option[value=' + issue + ']').text().toLowerCase().replace('lgbtq', 'LGBTQ'));
+    });
+
+
+});
+
+$('#quote a').click(function (e) {
+    e.preventDefault();
+
+    $(this).replaceWith($('<p>').text(quotes[$('#wordcloud-select').val()]));
+});
+
 
 /*************************
  ***** MESSAGE COUNT *****
@@ -189,3 +210,4 @@ if (window.location.search.indexOf('success') >= 0) {
 }
 
 $('.nav-pills .start').click();
+$('#wordcloud-select').trigger('change');
