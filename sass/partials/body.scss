@@ -8,14 +8,7 @@ body {
 .content {
     background: white;
 
-    img {
-        height: 100%;
-        max-width: 100%;
-        max-height: calc(100% - 80px);
-    }
-
     .tab-pane {
-        height: calc(100% - 80px - 42px);
         text-align: center;
         margin-top: 3em;
         margin-bottom: 3em;
@@ -54,6 +47,10 @@ body {
         font-size: 6em;
         font-weight: 500;
         color: #dd0000;
+
+        @media (max-width: 768px) {
+            font-size: 4em;
+        }
     }
 }
 

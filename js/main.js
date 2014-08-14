@@ -21,6 +21,18 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     }
 });
 
+function scaleFrame($e, decimal) {
+    var scale = 'scale(' + decimal + ')';
+    $e.css({
+        'transform': scale,
+        '-ms-transform': scale,
+        '-webkit-transform': scale,
+        'transform-origin': '0 50px',
+        '-ms-transform-origin': '0 50px',
+        '-webkit-transform-origin': '0 50px'
+    });
+}
+
 /***************************
  ***** SMOOTH SCROLLING ****
  ***************************/
@@ -37,18 +49,28 @@ $('.smooth-scroll').click(function (e) {
  ***** WORD CLOUD *****
  **********************/
 
-var maxWidth = $('#wordcloud').width();
-var w = (maxWidth > 960) ? 960 : maxWidth,
+var svg = d3.select('#wordcloud').append('svg');
+
+var w, h;
+
+function setSVGWidth() {
+    maxWidth = $('#wordcloud').width();
+    w = (maxWidth > 960) ? 960 : maxWidth;
     h = 500;
 
-var svg = d3.select('#wordcloud').append('svg')
-    .attr('width', w)
-    .attr('height', h);
+    svg.attr('width', w).attr('height', h);
+}
 
 d3.json('data/suicide.js')
 
-var vis;
+var vis, lastWords;
 function doViz(words) {
+    if (words == undefined) {
+        if (lastWords == undefined) return;
+        words = lastWords;
+    } else {
+        lastWords = words;
+    }
     svg.selectAll('g').remove();
 
     vis = svg
@@ -202,6 +224,23 @@ function increment() {
  ***** INIT *****
  ****************/
 
+
+function reflow() {
+    var width = $('.tab-pane.active').width();
+    var scale = 1;
+    if (width < 960) {
+        scale = width / 960;
+    }
+
+    scaleFrame($('.tab-pane iframe'), scale);
+    $('.tab-pane iframe').each(function () {
+        $(this).parent().height($(this).parent().data('height') * scale);
+    });
+
+    setSVGWidth();
+    doViz();
+}
+
 if (window.location.search.indexOf('success') >= 0) {
     $('#email-modal').modal('show');
     setTimeout(function () {
@@ -211,3 +250,10 @@ if (window.location.search.indexOf('success') >= 0) {
 
 $('.nav-pills .start').click();
 $('#wordcloud-select').trigger('change');
+
+reflow();
+var resizeT;
+$(window).resize(function () {
+    clearTimeout(resizeT);
+    resizeT = setTimeout(reflow, 500);
+});
