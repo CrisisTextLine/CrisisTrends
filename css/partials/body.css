@@ -6,8 +6,37 @@ body {
   height: 100%;
 }
 
+.tooltip-inner {
+  text-align: left;
+}
+
 .content {
   background: white;
+}
+.content .container {
+  position: relative;
+}
+.content .container .info {
+  position: absolute;
+  right: 0;
+  top: 175px;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+  background: #d00;
+  border-radius: 50%;
+  color: white;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+.content .container .info:before {
+  content: 'i';
+}
+@media (max-width: 768px) {
+  .content .container .info {
+    display: none;
+  }
 }
 .content .tab-pane {
   text-align: center;
@@ -50,11 +79,16 @@ body {
     font-size: 4em;
   }
 }
+.counter .quote {
+  width: 80%;
+  margin: 3em auto;
+}
 
 .bio-photo {
   text-align: center;
 }
 .bio-photo img {
+  margin-bottom: 1em;
   border-radius: 100px;
   box-shadow: 0 0 15px -5px black;
 }

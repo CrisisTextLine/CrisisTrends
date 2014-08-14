@@ -42,6 +42,9 @@
   margin-top: 0;
   margin-bottom: .5em;
 }
+.jumbotron-red .container > p {
+  margin-bottom: 3em;
+}
 
 .jumbotron {
   margin-bottom: 0;

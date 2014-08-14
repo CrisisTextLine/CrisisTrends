@@ -47,8 +47,16 @@
         margin-top: 0;
         margin-bottom: .5em;
     }
+
+    .container > p {
+        margin-bottom: 3em;
+    }
 }
 
 .jumbotron {
     margin-bottom: 0;
+}
+
+.text-center p {
+
 }

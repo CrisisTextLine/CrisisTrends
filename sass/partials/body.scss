@@ -5,8 +5,37 @@ body {
     height: 100%;
 }
 
+.tooltip-inner {
+    text-align: left;
+}
 .content {
     background: white;
+
+    .container {
+        position: relative;
+        .info {
+            position: absolute;
+            right: 0;
+            top: 175px;
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            background: #d00;
+            border-radius: 50%;
+            color: white;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+
+            &:before {
+                content: 'i';
+            }
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+    }
 
     .tab-pane {
         text-align: center;
@@ -52,11 +81,17 @@ body {
             font-size: 4em;
         }
     }
+
+    .quote {
+        width: 80%;
+        margin: 3em auto;
+    }
 }
 
 .bio-photo {
     text-align: center;
     img {
+        margin-bottom: 1em;
         border-radius: 100px;
         box-shadow: 0 0 15px -5px black;
     }

@@ -257,3 +257,5 @@ $(window).resize(function () {
     clearTimeout(resizeT);
     resizeT = setTimeout(reflow, 500);
 });
+
+$('.tooltipped').tooltip();
