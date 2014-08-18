@@ -107,3 +107,12 @@ body {
 p.little {
     font-size: 1em;
 }
+
+.btn-ctl {
+    background: #dd0000;
+    color: white;
+
+    &:hover {
+        background: red;
+    }
+}

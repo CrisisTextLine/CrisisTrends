@@ -140,6 +140,14 @@ p.little {
   font-size: 1em;
 }
 
+.btn-ctl {
+  background: #dd0000;
+  color: white;
+}
+.btn-ctl:hover {
+  background: red;
+}
+
 .teen {
   font-size: 3em;
   position: relative;
