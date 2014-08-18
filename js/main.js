@@ -136,6 +136,7 @@ $.getJSON('data/quotes.json', function (data) {
 
 $('#wordcloud-select').change(function () {
     var issue = $(this).val();
+    $(this).find('option:not([value])').remove();
     $('#wordcloud, #quote').addClass('loading');
 
     d3.json('data/words/' + issue + '.json', function (error, json) {
@@ -249,7 +250,7 @@ if (window.location.search.indexOf('success') >= 0) {
 }
 
 $('.nav-pills .start').click();
-$('#wordcloud-select').trigger('change');
+
 
 reflow();
 var resizeT;
