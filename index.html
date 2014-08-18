@@ -43,13 +43,13 @@
     <div class="container counter">
         <h1 id="counter">2,800,000</h1>
         <p class="lead">messages exchanged since August 1, 2013</p>
-        <p class="lead quote">We hope this data is useful to researchers, policy makers, and citizens understand the crises American teens face, and how to prevent future crises from happening.</p>
+        <p class="lead quote">We're providing this data to researchers, policy makers, and citizens to help understand the crises American teens face, and how to prevent future crises from happening.</p>
     </div>
     <div class="container">
         <ul class="nav nav-pills" role="tablist">
             <li><a href="#time" data-toggle="tab" class="start"><img src="images/clock.svg" />Crises by Time of Day</a></li>
             <li><a href="#day" data-toggle="tab"><img src="images/week.svg" />Crises by Day of Week</a></li>
-            <li><a href="#week" data-toggle="tab"><img src="images/month.svg" />Crises by Week</a></li>
+            <li><a href="#week" data-toggle="tab"><img src="images/month.svg" />Crises Over Time</a></li>
             <li><a href="#state" data-toggle="tab"><img src="images/us.svg" />Crises by State</a></li>
         </ul>
 
@@ -76,7 +76,9 @@
     <div class="jumbotron">
         <div class="container center-container">
             <p>Select a crisis type to see the top 50 words used.</p>
+            <p class="little"><strong>Content warning:</strong> When you select an issue, an example text pertaining to that issue will appear, which may upset some readers.</p>
             <select id="wordcloud-select" class="form-control input-lg">
+                <option selected>-- Select an issue --</option>
                 <option value="anxiety">Anxiety</option>
                 <option value="bereavement">Bereavement</option>
                 <option value="bully">Bullying</option>
@@ -94,7 +96,7 @@
                 <option value="sexual_abuse">Sexual abuse</option>
                 <option value="stress">Stress</option>
                 <option value="substance">Substance abuse</option>
-                <option value="suicide" selected>Suicidal Thoughts</option>
+                <option value="suicide">Suicidal Thoughts</option>
             </select>
             <div id="quote">
                 <p></p>
@@ -105,13 +107,14 @@
         </div>
     </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron disclaimer">
         <div class="container text-center">
             <p>All data used to generate this page is anonymized and stripped of any personally identifiable information.</p>
             <p>The visualizations above are representative of teens who text Crisis Text Line, not necessarily of the national teen population. For example, this may mean that "suicidal ideation" is more common in states like Montana, but it could also mean that teens in Montana are more likely to reach out for help generally or reach out to us specifically.</p>
         </div>
     </div>
 
+    <!-- partners section -->
     <div class="jumbotron jumbotron-red">
         <div class="container">
             <h1>Work with us</h1>
@@ -123,7 +126,7 @@
 
                 <form action="email.php" method="post">
                     <div class="col-sm-8">
-                        <p>Tell us how you're using the data. If you're a researcher, request access to restricted data:</p>
+                        <p>Let's work together to have an in-depth conversation about these issues.</p>
                         <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">

@@ -129,6 +129,17 @@ body {
   box-shadow: 0 0 15px -5px black;
 }
 
+.disclaimer {
+  padding-bottom: 1em;
+}
+.disclaimer p {
+  font-size: 1em;
+}
+
+p.little {
+  font-size: 1em;
+}
+
 .teen {
   font-size: 3em;
   position: relative;
