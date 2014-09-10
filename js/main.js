@@ -1,7 +1,7 @@
 /***************
  ***** TABS ****
  ***************/
-var tableauBase = 'http://public.tableausoftware.com/views/publicdata/{{VIZ}}?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableausoftware.com%2F&:tabs=no&:toolbar=no&:animate_transition=yes&:display_static_image=no&:display_spinner=yes&:display_overlay=yes&:display_count=yes&:loadOrderID=0';
+var tableauBase = 'http://public.tableausoftware.com/views/publicdata/{{VIZ}}?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableausoftware.com%2F&:tabs=no&:toolbar=top&:animate_transition=yes&:display_static_image=no&:display_spinner=yes&:display_overlay=yes&:display_count=yes&:loadOrderID=0';
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     var $tabContent = $(e.target.getAttribute('href'));
@@ -27,9 +27,9 @@ function scaleFrame($e, decimal) {
         'transform': scale,
         '-ms-transform': scale,
         '-webkit-transform': scale,
-        'transform-origin': '0 50px',
-        '-ms-transform-origin': '0 50px',
-        '-webkit-transform-origin': '0 50px'
+        'transform-origin': '0 80px',
+        '-ms-transform-origin': '0 80px',
+        '-webkit-transform-origin': '0 80px'
     });
 }
 
