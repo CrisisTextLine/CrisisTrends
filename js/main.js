@@ -163,62 +163,9 @@ $('#quote a').click(function (e) {
 /*************************
  ***** MESSAGE COUNT *****
  *************************/
-var incrementer, baseCount;
-
-/**
- * This sexy beast estimates the current number of messages
- * in the system based on historical trends on # of messages
- * per hour based on day of the week.
- */
-$.getJSON('data/messages.json', function (data) {
-    var timesMatrix = data['averages'];
-    var countFrom = new Date(data['from']);
-    var now = new Date();
-
-    baseCount = data['baseCount'];
-
-    var daysMatrix = {};
-    for (var i in timesMatrix) {
-        daysMatrix[i] = 0;
-        for (var j in timesMatrix[i]) {
-            daysMatrix[i] += timesMatrix[i][j];
-        }
-    }
-
-    // increment by day first (for speed--incase we forget to publish updates)
-    var start = countFrom.getTime();
-    var interval = 24 * 60 * 60 * 1000;
-    while ((start + interval) < now.getTime()) {
-        start += interval;
-        var day = new Date(start).getUTCDay() + 1;
-        baseCount += daysMatrix[day];
-    }
-    countFrom = new Date(start);
-
-    // now that we're up to today, increment by hour
-    var hours = Math.floor((new Date().getTime() - countFrom.getTime()) / 1000 / 60 / 60);
-    var today = now.getUTCDay() + 1;
-
-    for (var i = i; i < now.getUTCHours(); i++) {
-        baseCount += timesMatrix[today][i];
-    }
-
-    incrementer = timesMatrix[today][now.getUTCHours()] / (60 * 60);
-
-    increment();
-    setInterval(increment, 1000);
+$.get('data/messages.txt', function (data) {
+  $('#counter').text(data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 });
-
-function increment() {
-    var d = new Date();
-    var seconds = (d.getUTCMinutes() * 60) + d.getUTCSeconds();
-    count = Math.round(baseCount + (seconds * incrementer));
-
-    $('#counter').text(count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
-    return count;
-}
-
-
 
 
 /****************

@@ -2,3 +2,4 @@
 .sass-cache
 vendor
 config.php
+data/messages.txt
