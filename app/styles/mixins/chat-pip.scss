@@ -1,0 +1,13 @@
+@mixin chat-pip() {
+  &:after {
+    display: block;
+    background-image: url('#{$img-dir}/chat-pip.png');
+    content: " ";
+    width: 40px;
+    height: 30px;
+    position: absolute;
+    right: .25em;
+    bottom: -22px;
+    background-repeat: no-repeat;
+  }
+}

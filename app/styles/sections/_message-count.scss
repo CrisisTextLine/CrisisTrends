@@ -1,0 +1,39 @@
+
+.message-count {
+  background-color: $color-light-gray;
+  text-align: center;
+  @include arrow-down($arrow-down-size, $color-light-gray);
+  padding: 2em 0;
+}
+
+.message-box {
+  background-color: $color-red;
+  border-radius: .5em;
+  color: $color-white;
+  padding: .5em 0;
+  line-height: 1em;
+  font-weight: bold;
+
+  @include chat-pip();
+
+  font-size: 3em;
+  @include breakpoint(m)  { font-size: 4em; }
+  @include breakpoint(l)  { font-size: 6em; }
+  @include breakpoint(xl) { font-size: 8em;}
+}
+
+.message-count-description {
+  margin-top: 1em;
+  line-height: 1.25em;
+
+  font-size: .4em;
+  @include breakpoint(m) { font-size: .25em; }
+
+  br {
+    @include breakpoint(m) { display: none; }
+  }
+}
+
+.message-box-footer {
+  margin-top: 3em;
+}

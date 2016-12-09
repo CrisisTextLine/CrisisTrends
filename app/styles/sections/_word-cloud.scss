@@ -1,0 +1,7 @@
+
+.word-cloud {
+  padding-top: calc(#{$arrow-down-size} + 1em);
+  background-color: $color-light-gray;
+  @include arrow-down($arrow-down-size, $color-light-gray);
+  text-align: center;
+}

@@ -1,0 +1,5 @@
+
+.visualizations {
+  padding-top: calc(#{$arrow-down-size} + 1em);
+  @include arrow-down($arrow-down-size, $color-white);
+}

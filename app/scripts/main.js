@@ -1,76 +1,109 @@
-/*!
- *
- *  Web Starter Kit
- *  Copyright 2015 Google Inc. All rights reserved.
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *    https://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License
- *
- */
 /* eslint-env browser */
+
 (function() {
   'use strict';
 
-  // Check to make sure service workers are supported in the current browser,
-  // and that the current page is accessed from a secure origin. Using a
-  // service worker from an insecure origin will trigger JS console errors. See
-  // http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features
-  var isLocalhost = Boolean(window.location.hostname === 'localhost' ||
-      // [::1] is the IPv6 localhost address.
-      window.location.hostname === '[::1]' ||
-      // 127.0.0.1/8 is considered localhost for IPv4.
-      window.location.hostname.match(
-        /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/
-      )
-    );
+  /**
+   * Destination of all FAQ items
+   * @type {Element}
+   */
+  const _destination = document.getElementsByClassName('faq')[0];
 
-  if ('serviceWorker' in navigator &&
-      (window.location.protocol === 'https:' || isLocalhost)) {
-    navigator.serviceWorker.register('service-worker.js')
-    .then(function(registration) {
-      // updatefound is fired if service-worker.js changes.
-      registration.onupdatefound = function() {
-        // updatefound is also fired the very first time the SW is installed,
-        // and there's no need to prompt for a reload at that point.
-        // So check here to see if the page is already controlled,
-        // i.e. whether there's an existing service worker.
-        if (navigator.serviceWorker.controller) {
-          // The updatefound event implies that registration.installing is set:
-          // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-container-updatefound-event
-          var installingWorker = registration.installing;
+  /**
+   * Template for each wrapper section, including an image.
+   * @type {Element}
+   */
+  const _section = document.getElementsByClassName('template faq-section')[0];
+  bootstrapTemplate(_section);
 
-          installingWorker.onstatechange = function() {
-            switch (installingWorker.state) {
-              case 'installed':
-                // At this point, the old content will have been purged and the
-                // fresh content will have been added to the cache.
-                // It's the perfect time to display a "New content is
-                // available; please refresh." message in the page's interface.
-                break;
+  /**
+   * Template for each wrapper subsection, including an image.
+   * @type {Element}
+   */
+  const _subsection = document.getElementsByClassName('template faq-subsection')[0];
+  bootstrapTemplate(_subsection);
 
-              case 'redundant':
-                throw new Error('The installing ' +
-                                'service worker became redundant.');
+  /**
+   * Template for each question.
+   * @type {[type]}
+   */
+  const _question = document.getElementsByClassName('template faq-question')[0];
+  bootstrapTemplate(_question);
 
-              default:
-                // Ignore
-            }
-          };
+  for (let sectionTitle in window.faq) {
+    // Since we're working with a global obj, let's make sure we're not screwed by accidental
+    // prototyping.
+    if (!window.faq.hasOwnProperty(sectionTitle)) {
+      continue;
+    }
+
+    /** @type {object} Shortcut  */
+    const section = window.faq[sectionTitle];
+
+    /** @type {Element} The new section where we're putting the FAQ elements */
+    const _thisSection = _section.cloneNode(true);
+
+    // Fill in template data
+    _thisSection.querySelectorAll('h1')[0].innerHTML = sectionTitle;
+    _thisSection.querySelectorAll('img')[0].src = section.image;
+
+    for (let subsectionTitle in section.questions) {
+      if (!section.questions.hasOwnProperty(subsectionTitle)) {
+        continue;
+      }
+
+      /** @type {object,string} The set of either subsections or questions */
+      const subsection = section.questions[subsectionTitle];
+
+      if (typeof subsection === 'string') {
+        // we have a question
+        addQuestion(subsectionTitle, subsection, _thisSection);
+      } else {
+        // we have a subsection
+        const _thisSubsection = _subsection.cloneNode(true);
+
+        _thisSubsection.querySelectorAll('h2')[0].innerHTML = subsectionTitle;
+
+        for (let question in subsection) {
+          if (!subsection.hasOwnProperty(question)) {
+            continue;
+          }
+
+          addQuestion(question, subsection[question], _thisSubsection);
         }
-      };
-    }).catch(function(e) {
-      console.error('Error during service worker registration:', e);
-    });
+
+        _thisSection.appendChild(_thisSubsection);
+      }
+    }
+    // Finally, append to the DOM.
+    _destination.appendChild(_thisSection);
   }
 
-  // Your custom JavaScript goes here
+  /**
+   * Bootstrap a template by removing it from the dom and removing the template class.
+   *
+   * @param {Element} domNode The domNode to bootstrap into a template
+   */
+  function bootstrapTemplate(domNode) {
+    // Remove from DOM
+    domNode.parentNode.removeChild(domNode);
+
+    // Remove the template class
+    domNode.className = domNode.className.replace('template', '');
+  }
+
+  /**
+   * Add a question using the global question template to an Element, appendTo.
+   * @param {string} question question
+   * @param {string} answer answer
+   * @param {Element} appendTo Element to append the question to
+   */
+  function addQuestion(question, answer, appendTo) {
+    const _thisQuestion = _question.cloneNode(true);
+
+    _thisQuestion.querySelectorAll('h3')[0].innerHTML = question;
+    _thisQuestion.querySelectorAll('p')[0].innerHTML = answer;
+
+    appendTo.appendChild(_thisQuestion);
+  }
 })();
