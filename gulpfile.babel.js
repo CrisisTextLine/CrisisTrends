@@ -57,7 +57,7 @@ gulp.task('images', () =>
 );
 
 // Copy all files at the root level (app)
-gulp.task('copy', () =>
+gulp.task('copy', () => {
   gulp.src([
     'app/*',
     '!app/*.html',
@@ -65,8 +65,13 @@ gulp.task('copy', () =>
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
-    .pipe($.size({title: 'copy'}))
-);
+    .pipe($.size({title: 'copy'}));
+
+  gulp.src([
+    'app/data/*',
+    'app/data/*/*'
+  ]).pipe(gulp.dest('dist/data'));
+});
 
 // Compile and automatically prefix stylesheets
 gulp.task('styles', () => {
@@ -109,7 +114,8 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './app/scripts/wst.js',,
+      './app/scripts/wst.js',
+      './app/scripts/sections/*.js',
       './app/scripts/main.js'
     ])
       .pipe($.newer('.tmp/scripts'))

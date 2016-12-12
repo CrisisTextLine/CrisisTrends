@@ -1,4 +1,46 @@
 
+.faq {
+  padding-top: calc(#{$arrow-down-size} + 1em);
+  @include arrow-down($arrow-down-size, $color-white);
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    margin-top: 2em;
+  }
+
+  h3 {
+    font-size: 1em;
+    margin-top: 2em;
+  }
+
+  .faq-question {
+    text-align: left;
+  }
+
+  .faq-section {
+    margin: 1em 0;
+    padding: 1em 0;
+    border-bottom: 2px solid $color-light-gray;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    > img {
+      margin-bottom: 1em;
+    }
+  }
+
+  .faq-content {
+    @extend .animation;
+    @extend .fade-in-down;
+  }
+}
+
 .template {
   display: none;
 }

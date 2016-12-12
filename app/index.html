@@ -38,19 +38,55 @@
     <!-- sections/_visualizations.scss -->
     <div class="visualizations">
       <div class="container row clear">
-        TODO
+        <div class="iframe-wrapper">
+          <iframe
+            src="http://public.tableausoftware.com/views/crisistrends2dec122016/WorkingDashMobile2?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableausoftware.com%2F&:tabs=no&:toolbar=top&:animate_transition=yes&:display_static_image=no&:display_spinner=yes&:display_overlay=yes&:display_count=yes&:loadOrderID=0"
+            scrolling="no"
+            width="1000"
+            height="900"
+          ></iframe>
+        </div>
       </div>
     </div>
 
     <!-- sections/_word-cloud.scss -->
     <div class="word-cloud">
-      <div class="container row clear">
-        <h1>Select a crisis type to see the top 50 words used.</h1>
-        <div class="col-10-m push-1-m col-6-xl push-3-xl">
-          <p>
-            <strong>Content warning:</strong>
-            When you select an issue, an example text pertaining to that issue will appear, which may upset some readers.
-          </p>
+      <div class="container">
+        <div class="row clear">
+          <h1>Select a crisis type to see the top 50 words used.</h1>
+          <div class="col-10-m push-1-m col-6-xl push-3-xl">
+            <p>
+              <strong>Content warning:</strong>
+              When you select an issue, an example text pertaining to that issue will appear, which may upset some readers.
+            </p>
+            <select id="wordcloud-select">
+              <option selected>-- Select an issue --</option>
+              <option value="anxiety">Anxiety</option>
+              <option value="bereavement">Bereavement</option>
+              <option value="bully">Bullying</option>
+              <option value="depressed">Depression</option>
+              <option value="eating">Eating disorders</option>
+              <option value="family">Family Issues</option>
+              <option value="friend">Friend Issues</option>
+              <option value="medical">Health concerns</option>
+              <option value="isolated">Isolation</option>
+              <option value="lgbtq">LGBTQ Issues</option>
+              <option value="abuse">Physical abuse</option>
+              <option value="relationship">Relationship Issues</option>
+              <option value="school">School Problems</option>
+              <option value="self_harm">Self harm</option>
+              <option value="sexual_abuse">Sexual abuse</option>
+              <option value="stress">Stress</option>
+              <option value="substance">Substance abuse</option>
+              <option value="suicide">Suicidal Thoughts</option>
+            </select>
+          </div>
+        </div>
+        <div class="row clear">
+          <div class="col-8 push-2" id="wordcloud-quote"></div>
+        </div>
+        <div class="row clear">
+          <div class="col-10 push-1" id="wordcloud"></div>
         </div>
       </div>
     </div>
@@ -58,18 +94,67 @@
     <!-- sections/_faq.scss -->
     <div class="faq">
       <div class="container row clear">
+        <div class="faq-placeholder col-12"></div>
 
         <!-- FAQ templates -->
-        <div class="faq-section template">
+        <div class="template faq-section row clear">
+          <div class="expander"></div>
           <img src="">
           <h1>About Crisis Trends Data</h1>
+          <div class="faq-content col-10-m push-1-m"></div>
         </div>
-        <div class="faq-subsection template">
+        <div class="template faq-subsection">
           <h2></h2>
         </div>
-        <div class="faq-question template">
+        <div class="template faq-question">
           <h3></h3>
           <p></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- sections/_footer.scss -->
+    <div class="footer">
+      <div class="container row clear">
+        <div class="col-4-m">
+          <h1>Partner</h1>
+          <p>
+            Are you a city that wants to monitor trends in your area, like our
+            partner LA? Are you an organization that wants to learn more about
+            your members, like our partner NEDA? Are you a company that wants to
+            provide our service to your members, like our partner Facebook?
+          </p>
+          <a class="" href="http://www.surveygizmo.com/s3/2612353/CrisisTextLinePartners">Complete this survey to learn how!</a>
+        </div>
+        <div class="col-4-m">
+          <h1>Researcher</h1>
+          <p>
+            Are you a researcher interested in accessing our Enclave anonymized
+            data to conduct a research study?
+          </p>
+          <a class="" href="http://www.crisistextline.org/open-data/">Learn more.</a>
+        </div>
+        <div class="col-4-m">
+          <h1>Media</h1>
+          <p>
+            Are you a journalist interested in accessing some of our data for a
+            story?
+          </p>
+          <p>
+            Contact Liz, our Director of Communications:
+            <a href="mailto:liz@crisistextline.org">liz@crisistextline.org</a>
+          </p>
+        </div>
+
+        <div class="col-12">
+          <hr />
+
+          <p>
+            &copy; 2013-<script>
+              document.write(new Date().getFullYear());
+            </script>
+            Crisis Text Line
+          </p>
         </div>
       </div>
     </div>
@@ -87,7 +172,12 @@
     <!-- Register new javascript files here and in gulpfile.babel.js -->
 
     <script src="faq.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
     <!-- build:js scripts/main.min.js -->
+    <script src="scripts/lib/d3.cloud.js"></script>
+    <script src="scripts/sections/message-count.js"></script>
+    <script src="scripts/sections/faq.js"></script>
+    <script src="scripts/sections/word-cloud.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/wst.js"></script>
     <!-- endbuild -->

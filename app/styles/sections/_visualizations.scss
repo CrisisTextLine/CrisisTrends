@@ -2,4 +2,14 @@
 .visualizations {
   padding-top: calc(#{$arrow-down-size} + 1em);
   @include arrow-down($arrow-down-size, $color-white);
+
+  .iframe-wrapper {
+    overflow: hidden;
+    text-align: center;
+  }
+
+  iframe {
+    border: 0;
+    margin-top: -60px;
+  }
 }

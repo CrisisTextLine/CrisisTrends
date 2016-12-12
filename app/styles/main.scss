@@ -15,6 +15,7 @@
 /**
  * Templage imports.
  */
+@import 'base';
 @import 'headings';
 
 /**
@@ -24,3 +25,4 @@
 @import 'sections/visualizations';
 @import 'sections/word-cloud';
 @import 'sections/faq';
+@import 'sections/footer';

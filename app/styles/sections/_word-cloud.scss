@@ -4,4 +4,29 @@
   background-color: $color-light-gray;
   @include arrow-down($arrow-down-size, $color-light-gray);
   text-align: center;
+
+  padding-bottom: 3em;
+
+  #wordcloud {
+    @extend .animation;
+    @extend .fade-in-down;
+    margin: 1em;
+  }
+
+  #wordcloud-quote {
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    p {
+      background: $color-red;
+      color: white;
+      border-radius: .75em;
+      font-size: 1.5em;
+      padding: .5em 1em;
+      line-height: 1.25em;
+      margin: 0;
+
+      @include chat-pip();
+    }
+  }
 }
