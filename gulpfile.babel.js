@@ -115,6 +115,7 @@ gulp.task('scripts', () =>
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
       './app/scripts/wst.js',
+      './app/scripts/lib/*.js',
       './app/scripts/sections/*.js',
       './app/scripts/main.js'
     ])
