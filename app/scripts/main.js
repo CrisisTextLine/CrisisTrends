@@ -10,6 +10,7 @@
 'use strict';
 
 (function() {
+  polyfill();
   attachHamburger();
   getMessageCount();
   renderFAQ();
@@ -40,5 +41,14 @@
         hide(document.querySelectorAll('.hamburger-menu'));
       });
     });
+  }
+
+  /**
+   * Custom polyfills that aren't included in es5-shim.
+   */
+  function polyfill() {
+    if (NodeList.prototype.forEach === undefined) {
+      NodeList.prototype.forEach = Array.prototype.forEach;
+    }
   }
 })();
