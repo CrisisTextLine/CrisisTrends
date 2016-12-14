@@ -1,7 +1,7 @@
 ## Deploy
 
 ```sh
-gulp deploy
+$ gulp deploy
 ```
 
 This will automatically run the build & optimize scripts, then deploy out the current working
