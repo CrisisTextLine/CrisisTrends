@@ -6,7 +6,7 @@ pressing enter. There should be one question and answer per line.
 ## How to
 1. Open the [faq.js](../app/faq.js) file
 1. Click the pencil in the top right above the code
-1. Submit the changes in a pull request (see below)
+1. Submit the changes in a pull request (see below) Make sure you do NOT commit directly to the branch.
 
 ![PR instructions](images/create-pr.png)
 
