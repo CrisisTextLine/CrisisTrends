@@ -8,7 +8,7 @@ pressing enter. There should be one question and answer per line.
 1. Click the pencil in the top right above the code
 1. Submit the changes in a pull request (see below)
 
-![PR instructions](create-pr.png)
+![PR instructions](images/create-pr.png)
 
 ## Editing the file
 
