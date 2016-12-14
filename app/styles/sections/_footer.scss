@@ -1,6 +1,6 @@
 
 .footer {
-  padding-top: calc(#{$arrow-down-size} + 4em);
+  padding-top: calc(#{$arrow-down-size});
   background-color: $color-dark-gray;
   padding-bottom: 5em;
 
@@ -11,6 +11,11 @@
   h1 {
     color: $color-red;
     text-align: center;
+    margin-top: 2em;
+  }
+
+  a:hover {
+    color: $color-red;
   }
 
   hr {

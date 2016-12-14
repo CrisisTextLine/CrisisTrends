@@ -21,6 +21,7 @@
 /**
  * Section import. Files named after the row's wrapping class name.
  */
+@import 'sections/header';
 @import 'sections/message-count';
 @import 'sections/visualizations';
 @import 'sections/word-cloud';

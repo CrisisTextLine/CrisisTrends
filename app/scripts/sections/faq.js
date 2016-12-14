@@ -1,3 +1,7 @@
+/* global
+    hide
+    toggle
+ */
 /* eslint-env browser */
 'use strict';
 
@@ -141,50 +145,5 @@
         this.querySelectorAll(select).forEach(toggle);
       });
     });
-
-    /**
-     * Toggle the display of an element.
-     *
-     * @param  {element} e The element to toggle.
-     *
-     * @return {element}   The element that was toggled.
-     */
-    function toggle(e) {
-      if (e.style.display === 'none') {
-        return show(e);
-      }
-
-      return hide(e);
-    }
-
-    /**
-     * Hide an element or elements.
-     *
-     * @param  {element|NodeList} e The element(s) to hide
-     *
-     * @return {element} The element hidden
-     */
-    function hide(e) {
-      if (e instanceof NodeList) {
-        e.forEach(hide);
-      } else {
-        e.style.display = 'none';
-      }
-
-      return e;
-    }
-
-    /**
-     * Unhide an element.
-     *
-     * @param  {element} e The element to unhide.
-     *
-     * @return {element} The element unhidden
-     */
-    function show(e) {
-      e.style.display = 'inherit';
-
-      return e;
-    }
   };
 })();

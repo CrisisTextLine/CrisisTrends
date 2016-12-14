@@ -40,10 +40,13 @@
     wordCloudDiv.style.display = 'none';
   }
 
-  function setSVGWidth() {
+  function setSVGWidth(skipRedraw) {
     cloudWidth = wordCloudDiv.offsetWidth;
     svg.attr('width', cloudWidth);
-    doViz();
+
+    if (skipRedraw !== true) {
+      doViz();
+    }
   }
 
   function doViz(words) {
@@ -133,6 +136,7 @@
     var issue = this.value;
 
     wordCloudDiv.style.display = 'block';
+    setSVGWidth(true);
 
     d3.json('data/words/' + issue + '.json', function(error, json) {
       if (error) {
