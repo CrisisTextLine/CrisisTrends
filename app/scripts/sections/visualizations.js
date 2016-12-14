@@ -6,6 +6,8 @@
   window.addEventListener('scroll', loadDashboard);
   window.addEventListener('resize-complete', reflowDashboard);
 
+  adjustHeight();
+
   /**
    * Load the dashboard if it hasn't been loaded yet.
    *
@@ -23,7 +25,13 @@
    */
   function reflowDashboard() {
     loadDashboard(true);
+    adjustHeight();
+  }
 
+  /**
+   * Adjust the height of the data viz.
+   */
+  function adjustHeight() {
     const viz = document.getElementById('viz');
 
     if (viz.offsetWidth <= 500) {
