@@ -34,9 +34,10 @@
   }
 
   .hamburger-menu {
+    box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.2);
     background: $color-white;
     width: calc(100% + 10px);
-    margin: 0 -5px;
+    margin: 7px -5px 0;
 
     a {
       display: block;

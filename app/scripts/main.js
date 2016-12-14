@@ -18,10 +18,16 @@
   bootstrapWordCloud();
 
   let resizeTimer;
+  let w = window.outerWidth;
   window.addEventListener('resize', function(e) {
     clearTimeout(resizeTimer);
 
     resizeTimer = setTimeout(() => {
+      if (window.outerWidth === w) {
+        return;
+      }
+
+      w = window.outerWidth;
       const newEvent = new Event('resize-complete');
       newEvent.originalEvent = e;
       window.dispatchEvent(newEvent);
