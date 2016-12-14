@@ -10,6 +10,8 @@
 
   /**
    * Load the dashboard if it hasn't been loaded yet.
+   *
+   * @param {boolean} reload true if we want to force reloading the dashboard
    */
   function loadDashboard(reload) {
     if (!loaded || reload === true) {
@@ -18,6 +20,9 @@
     }
   }
 
+  /**
+   * Reload the dashboard in response to screen size change.
+   */
   function reflowDashboard() {
     loadDashboard(true);
 
