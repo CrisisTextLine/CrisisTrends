@@ -7,6 +7,12 @@
 
 [EditorConfig](http://editorconfig.org/) is a file format and collection of text editor plugins for maintaining consistent coding styles between different editors and IDEs.
 
+## .eslintignore
+
+[.eslintignore](http://eslint.org/docs/user-guide/configuring) is a configuration file for telling ES Lint files that we don't care to lint.
+
+This is good for things like third party libraries that aren't sourced from CDNs.
+
 ## gulpfile.babel.js
 
 [Gulp](http://gulpjs.com) is a streaming build system that allows you to automate tedious development tasks. Compared with other build systems, such as Grunt, gulp uses Node.js streams as a means to automate tasks, thereby removing the need to create intermediate files when transforming source files. 

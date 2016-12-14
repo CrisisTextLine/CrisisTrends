@@ -1,4 +1,12 @@
-There are many commands available to help you build and test sites. Here are a few highlights to get started with.
+## Deploy
+
+```sh
+gulp deploy
+```
+
+This will automatically run the build & optimize scripts, then deploy out the current working
+directory to the gh-pages branch. Note that this will deploy your current code, regardless of
+whether or not it is committed.
 
 ## Watch For Changes & Automatically Refresh Across Devices
 
