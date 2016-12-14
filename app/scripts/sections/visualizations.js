@@ -1,5 +1,3 @@
-/* eslint-env browser */
-
 (function() {
   const DASHBOARD_URL = 'http://public.tableausoftware.com/views/crisistrends2dec132016/WorkingDashMobile?:embed=y&:showVizHome=no&:host_url=https%3A%2F%2Fpublic.tableausoftware.com%2F&:tabs=no&:toolbar=top&:animate_transition=yes&:display_static_image=no&:display_spinner=yes&:display_overlay=yes&:display_count=yes&:loadOrderID=0';
 

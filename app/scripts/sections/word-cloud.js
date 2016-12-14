@@ -1,17 +1,16 @@
 /* global d3 */
-/* eslint-env browser */
 
 (function() {
   const wordCloudDiv = document.getElementById('wordcloud');
   const quoteDiv = document.getElementById('wordcloud-quote');
   const CLOUD_HEIGHT = 500;
+  const svg = d3.select(wordCloudDiv).append('svg');
 
-  var quotes;
-  var svg;
-  var cloudWidth;
-  var cloudHeight = CLOUD_HEIGHT;
-  var vis;
-  var lastWords;
+  let quotes;
+  let cloudWidth;
+  let cloudHeight = CLOUD_HEIGHT;
+  let vis;
+  let lastWords;
 
   window.bootstrapWordCloud = () => {
     getQuotes();
@@ -21,7 +20,7 @@
   };
 
   function getQuotes() {
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
@@ -34,7 +33,6 @@
   }
 
   function initializeD3() {
-    svg = d3.select(wordCloudDiv).append('svg');
     svg.attr('height', cloudHeight);
     setSVGWidth();
     wordCloudDiv.style.display = 'none';
@@ -68,10 +66,10 @@
         [cloudWidth >> 1, cloudHeight >> 1] +
         ')');
 
-    var max = 0;
-    var min = 1000000;
+    const max = 0;
+    const min = 1000000;
 
-    for (var i in words) {
+    for (let i in words) {
       if (words[i].c > max) {
         max = words[i].c;
       }
@@ -81,8 +79,8 @@
       }
     }
 
-    var maxscale = d3.scale.linear().range([50, 120]).domain([10, 960])(cloudWidth);
-    var sizeScale = d3.scale.linear().range([12, maxscale]).domain([min, max]);
+    const maxscale = d3.scale.linear().range([50, 120]).domain([10, 960])(cloudWidth);
+    const sizeScale = d3.scale.linear().range([12, maxscale]).domain([min, max]);
 
     d3.layout.cloud()
       .size([cloudWidth, cloudHeight])
@@ -133,7 +131,7 @@
   }
 
   document.getElementById('wordcloud-select').addEventListener('change', function() {
-    var issue = this.value;
+    const issue = this.value;
 
     wordCloudDiv.style.display = 'block';
     setSVGWidth(true);

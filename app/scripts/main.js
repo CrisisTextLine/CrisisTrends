@@ -6,7 +6,6 @@
     toggle
     hide
  */
-/* eslint-env browser */
 'use strict';
 
 (function() {

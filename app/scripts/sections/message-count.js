@@ -1,4 +1,3 @@
-/* eslint-env browser */
 'use strict';
 
 (function() {
@@ -8,7 +7,7 @@
   let currentVal = parseInt(messageDiv.innerHTML.replace(/,/g, ''), 10);
 
   window.getMessageCount = () => {
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
