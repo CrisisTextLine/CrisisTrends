@@ -1,6 +1,6 @@
 # Updating FAQs
 
-Remember to code in escaped HTML. This means escaping \" quotes \" and using &lt;br&gt; instead of
+Remember to code in escaped HTML. This means escaping \' apostrophes \' and using &lt;br&gt; instead of
 pressing enter. There should be one question and answer per line.
 
 ## How to
@@ -16,11 +16,11 @@ pressing enter. There should be one question and answer per line.
 
 ```json
 {
-  "Section title": {
-    "image": "images/icon.png",
-    "questions": {
-    }
-  }
+  'Section title': {
+    'image': 'images/icon.png',
+    'questions': {
+    },
+  },
 }
 ```
 
@@ -28,11 +28,11 @@ pressing enter. There should be one question and answer per line.
 
 ```json
 {
-  "questions": {
-    "Subsection title": {
-      "question": "answer"
-    }
-  }
+  'questions': {
+    'Subsection title': {
+      'question': 'answer',
+    },
+  },
 }
 ```
 
@@ -40,20 +40,20 @@ pressing enter. There should be one question and answer per line.
 
 ```json
 {
-  "questions": {
-    "question": "answer"
-  }
+  'questions': {
+    'question': 'answer',
+  },
 }
 
 ### Subsections and questions can be mixed together
 
 ```json
 {
-  "questions": {
-    "question": "answer",
-    "subsection": {
-      "question": "answer"
-    }
+  'questions': {
+    'question': 'answer',
+    'subsection': {
+      'question': 'answer',
+    },
   }
 }
 ```
