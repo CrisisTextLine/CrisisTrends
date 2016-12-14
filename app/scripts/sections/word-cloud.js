@@ -66,8 +66,8 @@
         [cloudWidth >> 1, cloudHeight >> 1] +
         ')');
 
-    const max = 0;
-    const min = 1000000;
+    let max = 0;
+    let min = 1000000;
 
     for (let i in words) {
       if (words[i].c > max) {
