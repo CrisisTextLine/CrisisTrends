@@ -10,7 +10,7 @@ More instructions located in [installation docs](docs/install.md)
 
 # Updating FAQs
 
-Remember to code in escaped HTML. This means escaping \" quotes \" and using <br> instead of 
+Remember to code in escaped HTML. This means escaping \" quotes \" and using &lt;br&gt; instead of 
 pressing enter. There should be one question and answer per line.
 
 ## Adding a section:
