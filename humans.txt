@@ -3,12 +3,6 @@
 
 # TEAM
 
-  <name> -- <role> -- <twitter>
-
-# THANKS
-
-  <name>
-
-# TECHNOLOGY COLOPHON
-
-  HTML5, CSS3
+  Chris Johnson -- Builder of all the things -- @cjcodes|cjcodes.com
+  Nitya Kanuri -- Product owner -- @nitya_kanuri
+  Bob Filbin -- Chief Data Scientist -- @bobfilbin
