@@ -14,7 +14,7 @@ pressing enter. There should be one question and answer per line.
 
 ### Adding a section:
 
-```json
+```js
 {
   'Section title': {
     'image': 'images/icon.png',
@@ -26,7 +26,7 @@ pressing enter. There should be one question and answer per line.
 
 ### Adding a subsection:
 
-```json
+```js
 {
   'questions': {
     'Subsection title': {
@@ -38,16 +38,17 @@ pressing enter. There should be one question and answer per line.
 
 ### Adding a question directly
 
-```json
+```js
 {
   'questions': {
     'question': 'answer',
   },
 }
+```
 
 ### Subsections and questions can be mixed together
 
-```json
+```js
 {
   'questions': {
     'question': 'answer',
