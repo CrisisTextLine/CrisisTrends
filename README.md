@@ -9,3 +9,5 @@
 # Documentation
 - [Full Installation Docs](docs/install.md)
 - [Editing the FAQs](docs/faq.md)
+- [Useful commands](docs/commands.md)
+- [Description of files in this directory](docs/file-appendix.md)
