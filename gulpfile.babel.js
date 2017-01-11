@@ -33,6 +33,7 @@ import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
+import merge from 'merge-stream';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -58,7 +59,7 @@ gulp.task('images', () =>
 
 // Copy all files at the root level (app)
 gulp.task('copy', () => {
-  gulp.src([
+  let appfiles = gulp.src([
     'app/*',
     '!app/*.html',
     'node_modules/apache-server-configs/dist/.htaccess'
@@ -67,10 +68,12 @@ gulp.task('copy', () => {
   }).pipe(gulp.dest('dist'))
     .pipe($.size({title: 'copy'}));
 
-  gulp.src([
+  let datafiles = gulp.src([
     'app/data/*',
     'app/data/*/*'
   ]).pipe(gulp.dest('dist/data'));
+
+  return merge(appfiles, datafiles);
 });
 
 // Compile and automatically prefix stylesheets
