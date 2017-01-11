@@ -35,9 +35,9 @@
     const viz = document.getElementById('viz');
 
     if (viz.offsetWidth <= 500) {
-      viz.height = 1800;
+      viz.height = 1950;
     } else {
-      viz.height = 900;
+      viz.height = 2600;
     }
   }
 })();
