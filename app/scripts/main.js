@@ -15,6 +15,7 @@
   renderFAQ();
   bindFAQ();
   bootstrapWordCloud();
+  scrollToTop();
 
   let resizeTimer;
   let w = window.outerWidth;
@@ -55,5 +56,17 @@
     if (NodeList.prototype.forEach === undefined) {
       NodeList.prototype.forEach = Array.prototype.forEach;
     }
+  }
+
+  /**
+   * Attach click binder to make #top scroll ALL THE WAY to the top
+   */
+  function scrollToTop() {
+    document.querySelectorAll('a[href="#top"]').forEach(function(element) {
+      element.addEventListener('click', (event) => {
+        window.scrollTo(0, 0);
+        event.preventDefault();
+      });
+    });
   }
 })();

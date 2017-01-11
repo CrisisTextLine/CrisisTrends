@@ -25,6 +25,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4",
     "gulp-useref": "^3.1.0",
+    "merge-stream": "^1.0.1",
     "psi": "^2.0.4",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.0.1",
@@ -47,13 +48,18 @@
     },
     "extends": "google",
     "rules": {
-      "max-len": ["warn", {
-        "code": 80,
-        "ignoreComments": true,
-        "ignoreStrings": true
-      }],
+      "max-len": [
+        "warn",
+        {
+          "code": 80,
+          "ignoreComments": true,
+          "ignoreStrings": true
+        }
+      ],
       "no-invalid-this": "off",
-      "require-jsdoc": ["warn"]
+      "require-jsdoc": [
+        "warn"
+      ]
     }
   }
 }
