@@ -6,11 +6,25 @@
   .iframe-wrapper {
     overflow: hidden;
     text-align: center;
+    background: $color-tableau-gray;
   }
 
   iframe {
     border: 0;
     margin-top: -60px;
-    background: $color-tableau-gray;
+    position: relative;
+    z-index: 1;
+  }
+
+  .scroll-to-view {
+    z-index: 0;
+    position: absolute;
+    text-align: center;
+    width: 250px;
+    margin-left: -125px;
+    margin-top: 1em;
+    left: 50%;
+    top: 0;
+    color: $color-dark-gray;
   }
 }

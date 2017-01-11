@@ -18,8 +18,8 @@
 
   font-size: 3em;
   @include breakpoint(m)  { font-size: 4em; }
-  @include breakpoint(l)  { font-size: 6em; }
-  @include breakpoint(xl) { font-size: 8em;}
+  @include breakpoint(l)  { font-size: 6em; padding: .3em 0; }
+  @include breakpoint(xl) { font-size: 7em; }
 }
 
 .message-count-description {
