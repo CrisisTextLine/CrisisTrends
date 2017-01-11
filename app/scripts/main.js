@@ -63,7 +63,6 @@
    */
   function scrollToTop() {
     document.querySelectorAll('a[href="#top"]').forEach(function (element) {
-      console.log(element);
       element.addEventListener('click', (event) => {
         window.scrollTo(0, 0);
         event.preventDefault();
