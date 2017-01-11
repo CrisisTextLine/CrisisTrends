@@ -62,7 +62,7 @@
    * Attach click binder to make #top scroll ALL THE WAY to the top
    */
   function scrollToTop() {
-    document.querySelectorAll('a[href="#top"]').forEach(function (element) {
+    document.querySelectorAll('a[href="#top"]').forEach(function(element) {
       element.addEventListener('click', (event) => {
         window.scrollTo(0, 0);
         event.preventDefault();
