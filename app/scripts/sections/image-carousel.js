@@ -8,7 +8,7 @@
    * Render the carousel.
    */
   window.renderCarousel = () => {
-    const carousel = new Carousel({
+    new Carousel({
       panels: document.getElementsByClassName('carousel-panel'),
       leftArrow: document.getElementsByClassName('carousel-left')[0],
       rightArrow: document.getElementsByClassName('carousel-right')[0],
