@@ -49,6 +49,4 @@ window.faq = {
       'What issues are they seeking help for?': 'The issues we encounter span the range of crises, from suicidal ideation to anxiety to romantic relationship concerns. On average, each texter mentions 2-3 issues, as identified by the Crisis Counselor.',
     },
   },
-
-  },
 };
