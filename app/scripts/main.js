@@ -12,6 +12,7 @@
   polyfill();
   attachHamburger();
   getMessageCount();
+  renderCarousel();
   renderFAQ();
   bindFAQ();
   bootstrapWordCloud();
