@@ -119,7 +119,7 @@ gulp.task('scripts', () =>
       //       to be correctly concatenated
       './app/scripts/wst.js',
       './app/scripts/lib/*.js',
-      './node_modules/carousel-js/dist/carousel.js',
+      // './node_modules/carousel-js/dist/carousel.js', TODOCAROUSEL
       './app/scripts/sections/*.js',
       './app/scripts/main.js'
     ])
