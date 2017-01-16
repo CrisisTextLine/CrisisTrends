@@ -12,7 +12,7 @@
   polyfill();
   attachHamburger();
   getMessageCount();
-  renderCarousel();
+  // renderCarousel(); TODOCAROUSEL
   renderFAQ();
   bindFAQ();
   bootstrapWordCloud();
