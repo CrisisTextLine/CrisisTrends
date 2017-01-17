@@ -41,12 +41,10 @@ window.faq = {
     'image': 'images/chat-bubble.png',
     'questions': {
       'Where do they come from?': 'We launched our service on August 1, 2013 in Chicago, IL and on September 1, 2013 in El Paso, TX. Within 4 months, with zero marketing, conversations were logged across all 295 U.S. area codes. Since then, we have processed over 29 million text messages (as of Jan 2017), from texters across the U.S.',
-      'Who are they?': {
-        'How old are they?': 'Roughly 75% of our texters are below 25 years old.',
-        'What is their background?': 'We have texters across all demographics, skewing rural and poor. 19% of our texter volume is from the 10% lowest-income zip codes. 6% of texters report they are Native American and 14% Hispanic.',
-        'How do we know this?': 'Following the close of the conversation, we ask texters to share more information about themselves, if they wish, so that we can better understand who our service is serving and how we can make it better.',
-      },
+      'How old are they?': 'Roughly 75% of our texters are below 25 years old.',
+      'What is their background?': 'We have texters across all demographics, skewing rural and poor. 19% of our texter volume is from the 10% lowest-income zip codes. 6% of texters report they are Native American and 14% Hispanic.',
       'What issues are they seeking help for?': 'The issues we encounter span the range of crises, from suicidal ideation to anxiety to romantic relationship concerns. On average, each texter mentions 2-3 issues, as identified by the Crisis Counselor.',
+      'How do we know this?': 'Following the close of the conversation, we ask texters to share more information about themselves, if they wish, so that we can better understand who our service is serving and how we can make it better.',
     },
   },
 };
