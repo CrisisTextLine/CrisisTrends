@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-  const MESSAGE_URL = 'http://direct.crisistextline.org/trends/data/messages.txt';
+  const MESSAGE_URL = '//direct.crisistextline.org/trends/data/messages.txt';
   const messageDiv = document.getElementById('message-count');
 
   let currentVal = parseInt(messageDiv.innerHTML.replace(/,/g, ''), 10);
