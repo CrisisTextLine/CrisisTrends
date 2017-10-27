@@ -1,4 +1,5 @@
 /* global d3 */
+/* eslint-disable */
 
 (function() {
   const wordCloudDiv = document.getElementById('wordcloud');
