@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/CrisisTextLine/CrisisTrends.svg?branch=v2)](https://travis-ci.org/CrisisTextLine/CrisisTrends)
+[![Known Vulnerabilities](https://snyk.io/test/github/CrisisTextLine/CrisisTrends/badge.svg)](https://snyk.io/test/github/CrisisTextLine/CrisisTrends)
 
 # Quickstart
 
