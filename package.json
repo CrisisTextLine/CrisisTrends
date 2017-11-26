@@ -7,7 +7,7 @@
     "carousel-js": "^4.0.0",
     "del": "^3.0.0",
     "eslint-config-google": "^0.7.1",
-    "getbase": "3.2.1",
+    "getbase": "3.5.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-babel": "^6.1.2",
