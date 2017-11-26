@@ -30,7 +30,7 @@
     "psi": "^2.0.4",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.0.1",
-    "sw-precache": "^3.2.0",
+    "sw-precache": "^5.2.0",
     "sw-toolbox": "^3.2.1"
   },
   "engines": {
