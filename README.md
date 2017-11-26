@@ -3,10 +3,14 @@
 # Quickstart
 
 1. Clone this repository
+1. Create a new branch in the format: `depends/bumps/minor/gulp-3.9.1`
 1. `npm install -g gulp`
 1. `npm install`
 1. `gulp serve`
 1. Start coding!
+1. `npm install`
+1. `gulp serve`
+1. `submit a pr, document properly`
 
 # Documentation
 - [Full Installation Docs](docs/install.md)
