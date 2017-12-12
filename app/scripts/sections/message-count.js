@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-  const MESSAGE_URL = '//direct.crisistextline.org/trends/data/messages.txt';
+  const MESSAGE_URL = '//4vammoq5j7.execute-api.us-east-1.amazonaws.com/prod/messages';
   const messageDiv = document.getElementById('message-count');
 
   let currentVal = parseInt(messageDiv.innerHTML.replace(/,/g, ''), 10);
@@ -30,7 +30,7 @@
    * true-enough value.
    */
   function fail() {
-    incrementValue('42865124');
+    incrementValue('53082360');
   }
 
   /**
