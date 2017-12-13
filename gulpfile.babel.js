@@ -26,6 +26,7 @@
 
 import path from 'path';
 import gulp from 'gulp';
+import cachebust from 'gulp-cache-bust';
 import del from 'del';
 import runSequence from 'run-sequence';
 import browserSync from 'browser-sync';
@@ -158,6 +159,9 @@ gulp.task('html', () => {
     })))
     // Output files
     .pipe($.if('*.html', $.size({title: 'html', showFiles: true})))
+    .pipe(cachebust({
+        type: 'timestamp'
+    }))
     .pipe(gulp.dest('dist'));
 });
 
