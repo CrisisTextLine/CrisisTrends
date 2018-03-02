@@ -6,3 +6,7 @@
   Chris Johnson -- Builder of all the things -- @cjcodes|cjcodes.com
   Nitya Kanuri -- Product owner -- @nitya_kanuri
   Bob Filbin -- Chief Data Scientist -- @bobfilbin
+  Scotty Huyn -- Data Scientist
+  Kaitlyn Murphy -- Product Manager
+  Jared Wolf -- Media Manager
+  Shayne Martin -- Software Engineer
