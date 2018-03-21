@@ -30,7 +30,7 @@
    * true-enough value.
    */
   function fail() {
-    incrementValue('64641017');
+    incrementValue(config.messages.fallbackMessageCount);
   }
 
   /**

@@ -10,7 +10,7 @@
    */
   function messageHandler(e) {
     const {origin, data} = e;
-    const domain = window.config.visualizations.domain;
+    const domain = config.visualizations.domain;
 
     if (origin !== domain || data.event_type !== 'dashboard_resize') {
       return;
@@ -42,8 +42,8 @@
    * @return {string} dashboardUrl
    */
   function getDashboardUrl(size = getDashboardSizeName()) {
-    const domain = window.config.visualizations.domain;
-    const dashboardId = window.config.visualizations.dashboards[size];
+    const domain = config.visualizations.domain;
+    const dashboardId = config.visualizations.dashboards[size];
 
     return `${domain}/shared/${dashboardId}?embed=true`;
   }
