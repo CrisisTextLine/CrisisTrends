@@ -1,9 +1,9 @@
 (function() {
   let loaded = false;
 
-  window.addEventListener('scroll', loadDashboard);
   window.addEventListener('resize-complete', reflowDashboard);
   window.addEventListener('message', messageHandler);
+  loadDashboard();
 
   /**
    * @param {Event} e Message event object
