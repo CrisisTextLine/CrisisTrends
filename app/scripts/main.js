@@ -59,9 +59,9 @@
     }
     if (!Object.entries) {
       Object.entries = function(obj) {
-        var ownProps = Object.keys(obj)
-        var i = ownProps.length;
-        var resArray = new Array(i);
+        const ownProps = Object.keys(obj);
+        const i = ownProps.length;
+        let resArray = new Array(i);
         while (i--) {
           resArray[i] = [ownProps[i], obj[ownProps[i]]];
         }
