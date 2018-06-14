@@ -57,8 +57,8 @@
     if (NodeList.prototype.forEach === undefined) {
       NodeList.prototype.forEach = Array.prototype.forEach;
     }
-    if (Object.prototype.entries === undefined) {
-      Object.prototype.entries = function(obj) {
+    if (!Object.entries) {
+      Object.entries = function(obj) {
         var ownProps = Object.keys(obj)
         var i = ownProps.length;
         var resArray = new Array(i);
