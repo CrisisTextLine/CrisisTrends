@@ -60,7 +60,7 @@
     if (!Object.entries) {
       Object.entries = function(obj) {
         const ownProps = Object.keys(obj);
-        const i = ownProps.length;
+        let i = ownProps.length;
         let resArray = new Array(i);
         while (i--) {
           resArray[i] = [ownProps[i], obj[ownProps[i]]];
