@@ -17,7 +17,7 @@
       },
     },
     messages: {
-      fallbackMessageCount: '64641017',
+      fallbackMessageCount: '72286760',
     },
   };
 })(window);
