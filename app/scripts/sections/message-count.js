@@ -17,9 +17,7 @@
       }
     });
 
-    xhr.addEventListener('error', () => {
-      fail();
-    });
+    xhr.addEventListener('error', fail);
 
     xhr.open('GET', MESSAGE_URL);
     xhr.send();

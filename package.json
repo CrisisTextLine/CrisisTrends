@@ -19,7 +19,7 @@
     "gulp-gh-pages": "git+https://github.com/CrisisTextLine/gulp-gh-pages.git#v0.5.5",
     "gulp-htmlmin": "^2.0.0",
     "gulp-if": "^2.0.1",
-    "gulp-imagemin": "^2.4.0",
+    "gulp-imagemin": "^5.0.3",
     "gulp-load-plugins": "^1.2.4",
     "gulp-newer": "^1.2.0",
     "gulp-sass": "^2.3.2",
