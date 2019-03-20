@@ -1,4 +1,4 @@
-(function (window) {
+(function(window) {
   window.config = {
     visualizations: {
       domain: 'https://app.periscopedata.com',
