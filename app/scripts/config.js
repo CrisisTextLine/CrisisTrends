@@ -1,4 +1,4 @@
-(function(window) {
+((window) => {
   window.config = {
     visualizations: {
       domain: 'https://app.periscopedata.com',
@@ -17,7 +17,7 @@
       },
     },
     messages: {
-      fallbackMessageCount: '131326209',
+      fallbackMessageCount: '131530983',
     },
   };
 })(window);
