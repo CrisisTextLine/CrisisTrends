@@ -38,10 +38,6 @@ import merge from 'merge-stream';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-// gulp.task('default', gulp.series(() => console.log('ok ok ok')));
-
-
-
 // Lint JavaScript
 gulp.task('lint', gulp.series(() =>
   gulp.src(['app/scripts/**/*.js', '!node_modules/**', 'app/faq.js'])
