@@ -8,6 +8,7 @@
     "del": "^2.2.2",
     "eslint-config-google": "^0.7.1",
     "getbase": "3.2.1",
+    "gift": "^0.10.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
