@@ -1,15 +1,17 @@
-'use strict';
+"use strict";
 
-(function() {
-  const MESSAGE_URL = 'https://4vammoq5j7.execute-api.us-east-1.amazonaws.com/prod/messages';
-  const messageDiv = document.getElementById('message-count');
+(function () {
+  const MESSAGE_URL =
+    "https://4vammoq5j7.execute-api.us-east-1.amazonaws.com/prod/messages";
+  const messageDiv = document.getElementById("message-count");
+  const config = require("../config");
 
-  let currentVal = parseInt(messageDiv.innerHTML.replace(/,/g, ''), 10);
+  let currentVal = parseInt(messageDiv.innerHTML.replace(/,/g, ""), 10);
 
   window.getMessageCount = () => {
     const xhr = new XMLHttpRequest();
 
-    xhr.addEventListener('load', () => {
+    xhr.addEventListener("load", () => {
       if (xhr.status === 200) {
         incrementValue(xhr.responseText);
       } else {
@@ -17,9 +19,9 @@
       }
     });
 
-    xhr.addEventListener('error', fail);
+    xhr.addEventListener("error", fail);
 
-    xhr.open('GET', MESSAGE_URL);
+    xhr.open("GET", MESSAGE_URL);
     xhr.send();
   };
 
@@ -59,6 +61,6 @@
     // format the string with commas every 3 places
     messageDiv.innerHTML = currentVal
       .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 })();
