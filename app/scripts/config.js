@@ -1,10 +1,10 @@
-((window) => {
+(window => {
   window.config = {
     visualizations: {
-      domain: "https://app.periscopedata.com",
+      domain: 'https://app.periscopedata.com',
       dashboards: {
-        desktop: "e12a39cb-63d2-4349-94a1-d0ebc6bf9a7d",
-        mobile: "171d3869-a831-433b-900d-45e53badfd7f",
+        desktop: 'e12a39cb-63d2-4349-94a1-d0ebc6bf9a7d',
+        mobile: '171d3869-a831-433b-900d-45e53badfd7f',
       },
       constants: {
         vizHeights: {
@@ -17,7 +17,7 @@
       },
     },
     messages: {
-      fallbackMessageCount: "142780374",
+      fallbackMessageCount: '142780374',
     },
   };
 })(window);

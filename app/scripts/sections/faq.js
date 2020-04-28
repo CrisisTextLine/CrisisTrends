@@ -127,7 +127,7 @@
     const allElements = document.querySelectorAll(select);
     hide(allElements);
 
-    allElements.forEach((e) => {
+    allElements.forEach(e => {
       e.style.cursor = 'auto';
 
       // Prevent the click listener on the parent from affecting this (i.e. re-hiding this element)
@@ -137,7 +137,7 @@
     });
 
     const sections = document.querySelectorAll('.faq-section');
-    sections.forEach((e) => {
+    sections.forEach(e => {
       e.style.cursor = 'pointer';
 
       e.addEventListener('click', function() {

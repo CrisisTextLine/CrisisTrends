@@ -1,3 +1,4 @@
+/* global config */
 (function() {
   let loaded = false;
 
@@ -26,18 +27,18 @@
     const viewportWidths = config.visualizations.constants.viewportWidths;
     const width = window.innerWidth;
     const size = Object.entries(viewportWidths)
+      // eslint-disable-next-line no-unused-vars
       .filter(([name, size]) => width < size)   // Remove viewport sizes smaller than current viewport
-      .reduce((currentLargest, currentSize) => {
+      .reduce((currentLargest, currentSize) =>
         // If the current size is bigger than the largest size seen so far,
         // then return that one, otherwise return the existing largest seen so far
-        return currentSize[1] > currentLargest[1] ? currentSize : currentLarget;
-      }, ['desktop', width]); // Start with the smallest size to start width
+         currentSize[1] > currentLargest[1] ? currentSize : currentLargest, ['desktop', width]); // Start with the smallest size to start width
 
     return size[0];
   }
 
   /**
-   * Gets the dahsboard url for a given size
+   * Gets the dashboard url for a given size
    * @param {string} size Name of size to get dashboard for
    * @return {string} dashboardUrl
    */

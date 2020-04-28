@@ -68,6 +68,7 @@
         }
       };
     }).catch(function(e) {
+      // eslint-disable-next-line no-console
       console.error('Error during service worker registration:', e);
     });
   }

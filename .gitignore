@@ -4,3 +4,4 @@ dist/
 app.yaml
 .DS_Store
 .publish/
+.vscode/
