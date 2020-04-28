@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-env browser */
 /* eslint quote-props: ["error", "always"] */
 'use strict';
