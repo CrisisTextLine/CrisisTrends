@@ -6,7 +6,7 @@
 1. `npm install -g gulp`
 1. `npm install`
 1. `gulp serve`
-1. Start coding!
+1. Start coding!!
 
 # Documentation
 - [Full Installation Docs](docs/install.md)
