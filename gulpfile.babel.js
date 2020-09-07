@@ -78,16 +78,11 @@ gulp.task('copy', gulp.series(() => {
 
 // Compile and automatically prefix stylesheets
 gulp.task('styles', gulp.series(() => {
-  const AUTOPREFIXER_BROWSERS = [
-    'ie >= 10',
-    'ie_mob >= 10',
-    'ff >= 30',
-    'chrome >= 34',
-    'safari >= 7',
-    'opera >= 23',
-    'ios >= 7',
-    'android >= 4.4',
-    'bb >= 10'
+  const autoprefixer = require('autoprefixer');
+  const cssnano = require('cssnano');
+  const plugins = [
+    autoprefixer(),
+    cssnano()
   ];
 
   // For best performance, don't add Sass partials to `gulp.src`
@@ -100,10 +95,8 @@ gulp.task('styles', gulp.series(() => {
     .pipe($.sass({
       precision: 10
     }).on('error', $.sass.logError))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('.tmp/styles'))
     // Concatenate and minify styles
-    .pipe($.if('*.css', $.cssnano()))
+    .pipe($.if('*.css', $.postcss(plugins)))
     .pipe($.size({ title: 'styles' }))
     .pipe($.sourcemaps.write('./'))
     .pipe(gulp.dest('dist/styles'));
