@@ -99,7 +99,8 @@ gulp.task('styles', gulp.series(() => {
     .pipe($.if('*.css', $.postcss(plugins)))
     .pipe($.size({ title: 'styles' }))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('dist/styles'));
+    .pipe(gulp.dest('dist/styles'))
+    .pipe(gulp.dest('.tmp/styles'));
 }));
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
@@ -179,8 +180,8 @@ gulp.task('serve', gulp.series('scripts', 'styles', () => {
   });
 
   gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
-  gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
+  gulp.watch(['app/styles/**/*.{scss,css}'], gulp.series('styles', reload));
+  gulp.watch(['app/scripts/**/*.js'], gulp.series('lint', 'scripts', reload));
   gulp.watch(['app/images/**/*'], reload);
 }));
 

@@ -1,7 +1,7 @@
 /* global config */
 'use strict';
 
-(function() {
+(() => {
   const MESSAGE_URL = 'https://4vammoq5j7.execute-api.us-east-1.amazonaws.com/prod/messages';
   const messageDiv = document.getElementById('message-count');
 
