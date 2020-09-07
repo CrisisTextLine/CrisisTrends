@@ -35,8 +35,7 @@
   };
 
   /**
-   * Failure handler for a failed XHR request. Let's just populate with a sane,
-   * true-enough value.
+   * Failure handler for a failed XHR request.
    */
   function fail() {
     incrementValue(config.messages.fallbackMessageCount);
@@ -45,7 +44,7 @@
   /**
    * Increment the current value by the difference from current to desired / 2.
    *
-   * @param  {integer} intVal Value we're shooting for
+   * @param {integer} intVal Value we're shooting for
    */
   function incrementValue(intVal) {
     intVal = parseInt(intVal, 10);
