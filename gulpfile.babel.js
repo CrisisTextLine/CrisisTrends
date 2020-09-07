@@ -81,7 +81,7 @@ gulp.task('styles', gulp.series(() => {
   const autoprefixer = require('autoprefixer');
   const cssnano = require('cssnano');
   const plugins = [
-    autoprefixer(),
+    autoprefixer(), // Uses browserlist from package.json https://github.com/browserslist/browserslist#readme
     cssnano()
   ];
 
@@ -98,7 +98,7 @@ gulp.task('styles', gulp.series(() => {
     // Concatenate and minify styles
     .pipe($.if('*.css', $.postcss(plugins)))
     .pipe($.size({ title: 'styles' }))
-    .pipe($.sourcemaps.write('./'))
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('dist/styles'))
     .pipe(gulp.dest('.tmp/styles'));
 }));

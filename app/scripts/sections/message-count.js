@@ -5,7 +5,17 @@
   const MESSAGE_URL = 'https://4vammoq5j7.execute-api.us-east-1.amazonaws.com/prod/messages';
   const messageDiv = document.getElementById('message-count');
 
-  let currentVal = parseInt(messageDiv.innerHTML.replace(/,/g, ''), 10);
+  /**
+   * Update the display to currentValue, formatted in 1,231,131,232 format
+   */
+  const updateDisplay = () =>
+    // format the string with commas every 3 places
+    messageDiv.innerHTML = currentVal
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+  let currentVal = config.messages.fallbackMessageCount;
+  updateDisplay();
 
   window.getMessageCount = () => {
     const xhr = new XMLHttpRequest();
@@ -51,15 +61,5 @@
         incrementValue(intVal);
       }, 125 - Math.log(difference) * 5);
     }
-  }
-
-  /**
-   * Update the display to currentValue, formatted in 1,231,131,232 format
-   */
-  function updateDisplay() {
-    // format the string with commas every 3 places
-    messageDiv.innerHTML = currentVal
-      .toString()
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 })();
