@@ -78,16 +78,11 @@ gulp.task('copy', gulp.series(() => {
 
 // Compile and automatically prefix stylesheets
 gulp.task('styles', gulp.series(() => {
-  const AUTOPREFIXER_BROWSERS = [
-    'ie >= 10',
-    'ie_mob >= 10',
-    'ff >= 30',
-    'chrome >= 34',
-    'safari >= 7',
-    'opera >= 23',
-    'ios >= 7',
-    'android >= 4.4',
-    'bb >= 10'
+  const autoprefixer = require('autoprefixer');
+  const cssnano = require('cssnano');
+  const plugins = [
+    autoprefixer(), // Uses browserlist from package.json https://github.com/browserslist/browserslist#readme
+    cssnano()
   ];
 
   // For best performance, don't add Sass partials to `gulp.src`
@@ -100,13 +95,12 @@ gulp.task('styles', gulp.series(() => {
     .pipe($.sass({
       precision: 10
     }).on('error', $.sass.logError))
-    .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(gulp.dest('.tmp/styles'))
     // Concatenate and minify styles
-    .pipe($.if('*.css', $.cssnano()))
+    .pipe($.if('*.css', $.postcss(plugins)))
     .pipe($.size({ title: 'styles' }))
-    .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('dist/styles'));
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist/styles'))
+    .pipe(gulp.dest('.tmp/styles'));
 }));
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
@@ -186,8 +180,8 @@ gulp.task('serve', gulp.series('scripts', 'styles', () => {
   });
 
   gulp.watch(['app/**/*.html'], reload);
-  gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
-  gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts', reload]);
+  gulp.watch(['app/styles/**/*.{scss,css}'], gulp.series('styles', reload));
+  gulp.watch(['app/scripts/**/*.js'], gulp.series('lint', 'scripts', reload));
   gulp.watch(['app/images/**/*'], reload);
 }));
 
