@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/CrisisTextLine/CrisisTrends.svg?branch=v2)](https://travis-ci.org/CrisisTextLine/CrisisTrends)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FCrisisTextLine%2FCrisisTrends%2Fbadge%3Fref%3Dv2&style=for-the-badge)](https://actions-badge.atrox.dev/CrisisTextLine/CrisisTrends/goto?ref=v2)
 
 # Quickstart
 
