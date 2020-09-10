@@ -192,7 +192,7 @@ gulp.task('pagespeed', gulp.series(cb =>
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: 'YOUR_API_KEY'
-    nokey: 'true',
+    nokey: true,
     strategy: 'desktop',
     threshold: 47
   }, cb)
