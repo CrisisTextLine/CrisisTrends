@@ -188,11 +188,13 @@ gulp.task('serve', gulp.series('scripts', 'styles', () => {
 // Run PageSpeed Insights
 gulp.task('pagespeed', gulp.series(cb =>
   // Update the below URL to the public URL of your site
-  pagespeed('example.com', {
-    strategy: 'mobile'
+  pagespeed('https://crisistrends.org/', {
     // By default we use the PageSpeed Insights free (no API key) tier.
     // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
     // key: 'YOUR_API_KEY'
+    nokey: 'true',
+    strategy: 'desktop',
+    threshold: 47
   }, cb)
 ));
 

@@ -18,7 +18,7 @@
     },
     messages: {
       // count must be an integer
-      fallbackMessageCount: 160174788,
+      fallbackMessageCount: 160457788,
     },
   };
 })(window);
