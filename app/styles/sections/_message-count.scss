@@ -1,5 +1,5 @@
 
-.message-count {
+.conversation-count {
   background-color: $color-light-gray;
   text-align: center;
   @include arrow-down($arrow-down-size, $color-light-gray);
@@ -22,7 +22,7 @@
   @include breakpoint(xl) { font-size: 7em; }
 }
 
-.message-count-description {
+.conversation-count-description {
   margin-top: 1em;
   line-height: 1.25em;
 
