@@ -19,7 +19,7 @@
           "warn",
           {
             "tabWidth": 2,
-            "code": 100,
+            "code": 105,
             "ignoreComments": true,
             "ignoreTrailingComments": true,
             "ignoreTemplateLiterals": true
