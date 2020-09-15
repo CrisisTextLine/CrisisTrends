@@ -2,22 +2,22 @@
 'use strict';
 
 (() => {
-  const MESSAGE_URL = 'https://4vammoq5j7.execute-api.us-east-1.amazonaws.com/prod/messages';
-  const messageDiv = document.getElementById('message-count');
+  const CONVERSATION_URL = 'https://4vammoq5j7.execute-api.us-east-1.amazonaws.com/prod/conversations';
+  const conversationDiv = document.getElementById('conversation-count');
 
   /**
    * Update the display to currentValue, formatted in 1,231,131,232 format
    */
   const updateDisplay = () =>
     // format the string with commas every 3 places
-    messageDiv.innerHTML = currentVal
+    conversationDiv.innerHTML = currentVal
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-  let currentVal = config.messages.fallbackMessageCount;
+  let currentVal = config.conversations.fallbackConversationCount;
   updateDisplay();
 
-  window.getMessageCount = () => {
+  window.getConversationCount = () => {
     const xhr = new XMLHttpRequest();
 
     xhr.addEventListener('load', () => {
@@ -30,7 +30,7 @@
 
     xhr.addEventListener('error', fail);
 
-    xhr.open('GET', MESSAGE_URL);
+    xhr.open('GET', CONVERSATION_URL);
     xhr.send();
   };
 
@@ -38,7 +38,7 @@
    * Failure handler for a failed XHR request.
    */
   function fail() {
-    incrementValue(config.messages.fallbackMessageCount);
+    incrementValue(config.conversations.fallbackConversationCount);
   }
 
   /**
