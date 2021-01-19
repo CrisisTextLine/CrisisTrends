@@ -130,8 +130,7 @@ gulp.task('scripts', gulp.series(() =>
 gulp.task('html', gulp.series(() => {
   return gulp.src('app/**/*.html')
     .pipe($.useref({
-      searchPath: '{.tmp,app}',
-      noAssets: false
+      searchPath: '{.tmp,app}'
     }))
 
     // Minify any HTML
