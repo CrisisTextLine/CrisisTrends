@@ -31,7 +31,6 @@ import del from 'del';
 import browserSync from 'browser-sync';
 import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import { output as pagespeed } from 'psi';
 import pkg from './package.json';
 import merge from 'merge-stream';
 
@@ -171,10 +170,6 @@ gulp.task('serve', gulp.series('scripts', 'styles', () => {
     logPrefix: 'WSK',
     // Allow scroll syncing across breakpoints
     scrollElementMapping: ['main', '.mdl-layout'],
-    // Run as an https by uncommenting 'https: true'
-    // Note: this uses an unsigned certificate which on first access
-    //       will present a certificate warning in the browser.
-    // https: true,
     server: ['.tmp', 'app'],
     port: 3000
   });
@@ -185,24 +180,9 @@ gulp.task('serve', gulp.series('scripts', 'styles', () => {
   gulp.watch(['app/images/**/*'], reload);
 }));
 
-// Run PageSpeed Insights
-gulp.task('pagespeed', gulp.series(cb =>
-  // Update the below URL to the public URL of your site
-  pagespeed('https://crisistrends.org/', {
-    // By default we use the PageSpeed Insights free (no API key) tier.
-    // Use a Google Developer API key if you have one: http://goo.gl/RkN0vE
-    // key: 'YOUR_API_KEY'
-    nokey: true,
-    strategy: 'desktop',
-    threshold: 47
-  }, cb)
-));
-
 // Copy over the scripts that are used in importScripts as part of the generate-service-worker task.
-gulp.task('copy-sw-scripts', gulp.series(() => {
-  return gulp.src(['node_modules/sw-toolbox/sw-toolbox.js', 'app/scripts/sw/runtime-caching.js'])
-    .pipe(gulp.dest('dist/scripts/sw'));
-}));
+gulp.task('copy-sw-scripts', gulp.series(() => gulp.src(['node_modules/sw-toolbox/sw-toolbox.js', 'app/scripts/sw/runtime-caching.js'])
+    .pipe(gulp.dest('dist/scripts/sw'))));
 
 // See http://www.html5rocks.com/en/tutorials/service-worker/introduction/ for
 // an in-depth explanation of what service workers are and why you should care.
