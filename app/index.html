@@ -178,7 +178,7 @@
         <hr />
 
         <p>
-          &copy; 2013&nbsp;-
+          &copy; 2013&nbsp;-&nbsp;
           <script>
             document.write(new Date().getFullYear());
           </script>&nbsp;Crisis Text Line
@@ -201,18 +201,20 @@
 
   <!-- Register new javascript files here and in gulpfile.babel.js -->
 
-  <script src="faq.js"></script>
+  <script src="/faq.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
-  <script src="scripts/config.js"></script>
-  <script src="scripts/lib/d3.cloud.js"></script>
-  <script src="scripts/lib/toggle.js"></script>
-  <script src="scripts/sections/conversation-count.js"></script>
-  <script src="scripts/sections/visualizations.js"></script>
-  <script src="scripts/sections/word-cloud.js"></script>
-  <script src="scripts/sections/faq.js"></script>
-  <script src="scripts/main.js"></script>
-  <script src="scripts/wst.js"></script>
+  <!-- build:js scripts/main.min.js -->
+  <script type="text/javascript" src="/scripts/config.js"></script>
+  <script type="text/javascript" src="/scripts/lib/d3.cloud.js"></script>
+  <script type="text/javascript" src="/scripts/lib/toggle.js"></script>
+  <script type="text/javascript" src="/scripts/sections/conversation-count.js"></script>
+  <script type="text/javascript" src="/scripts/sections/visualizations.js"></script>
+  <script type="text/javascript" src="/scripts/sections/word-cloud.js"></script>
+  <script type="text/javascript" src="/scripts/sections/faq.js"></script>
+  <script type="text/javascript" src="/scripts/main.js"></script>
+  <script type="text/javascript" src="/scripts/wst.js"></script>
+  <!-- endbuild -->
 </body>
 
 </html>

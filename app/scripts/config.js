@@ -18,7 +18,7 @@
     },
     conversations: {
       // count must be an integer
-      fallbackConversationCount: 4873330,
+      fallbackConversationCount: 5469087,
     },
   };
 })(window);
