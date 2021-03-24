@@ -13,8 +13,8 @@
 - [Useful commands](docs/commands.md)
 - [Description of files in this directory](docs/file-appendix.md)
 
-Message Count
+Conversation Count
 ---
 
-1. Use the API Gateway endpoint to get the lastest value.
+1. Use the API Gateway endpoint to get the latest value.
 1. Update [`config.js`](app/scripts/config.js)

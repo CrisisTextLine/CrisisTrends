@@ -5,3 +5,4 @@ app.yaml
 .DS_Store
 .publish/
 .vscode/
+deploy.sh

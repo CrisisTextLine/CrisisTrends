@@ -114,29 +114,23 @@ gulp.task('scripts', gulp.series(() =>
     './app/scripts/wst.js',
     './app/scripts/config.js',
     './app/scripts/lib/*.js',
-    // './node_modules/carousel-js/dist/carousel.js', TODOCAROUSEL
     './app/scripts/sections/*.js',
     './app/scripts/main.js'
-  ])
+  ], {base: './app/scripts/'})
     .pipe($.newer('.tmp/scripts'))
-    .pipe($.sourcemaps.init())
     .pipe($.babel())
-    .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe($.concat('main.min.js'))
     .pipe($.uglify({ preserveComments: 'some' }))
-    // Output files
     .pipe($.size({ title: 'scripts' }))
-    .pipe($.sourcemaps.write('.'))
-    .pipe(gulp.dest('dist/scripts'))
+    .pipe(gulp.dest('./dist/scripts/'))
 ));
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', gulp.series(() => {
   return gulp.src('app/**/*.html')
     .pipe($.useref({
-      searchPath: '{.tmp,app}',
-      noAssets: true
+      searchPath: '{.tmp,app}'
     }))
 
     // Minify any HTML
@@ -216,7 +210,7 @@ gulp.task('generate-service-worker', gulp.series('copy-sw-scripts', () => {
 }));
 
 // Build production files, the default task
-gulp.task('default', gulp.series('clean', 'styles', 'lint', 'html', 'scripts', 'images', 'copy', 'generate-service-worker'));
+gulp.task('default', gulp.series('clean', 'styles', 'lint', 'scripts', 'images', 'html', 'copy', 'generate-service-worker'));
 
 // Build and serve the output from the dist build
 gulp.task('serve:dist', gulp.series('default', () =>
