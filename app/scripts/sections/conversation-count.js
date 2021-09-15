@@ -44,7 +44,7 @@
   /**
    * Increment the current value by the difference from current to desired / 2.
    *
-   * @param {integer} intVal Value we're shooting for
+   * @param {number} intVal Value we're shooting for
    */
   function incrementValue(intVal) {
     intVal = parseInt(intVal, 10);
