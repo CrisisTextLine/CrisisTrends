@@ -1,8 +1,9 @@
-node_modules
-dist/
-.tmp
 app.yaml
-.DS_Store
-.publish/
-.vscode/
 deploy.sh
+dist/
+.DS_Store
+.idea
+node_modules
+.publish/
+.tmp
+.vscode/
