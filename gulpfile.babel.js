@@ -29,9 +29,9 @@ import gulp from 'gulp';
 import cachebust from 'gulp-cache-bust';
 import del from 'del';
 import browserSync from 'browser-sync';
-import workbox from 'gulp-workbox';
+
+import {injectManifest} from "workbox-build";
 import gulpLoadPlugins from 'gulp-load-plugins';
-import pkg from './package.json';
 import merge from 'merge-stream';
 import sass from 'sass';
 import gulpSass from 'gulp-sass'
@@ -182,22 +182,26 @@ gulp.task('copy-sw-scripts', gulp.series(() => gulp.src(['node_modules/sw-toolbo
 // Generate a service worker file that will provide offline functionality for
 // local resources. This should only be done for the 'dist' directory, to allow
 // live reload to work as expected when serving from the 'app' directory.
-gulp.task('generate-service-worker', () =>{
-  const rootDir = 'dist';
-  const filepath = path.join(rootDir, 'sw.js');
-
-  return gulp.src(filepath)
-    .pipe(workbox({
+gulp.task('generate-service-worker', () => {
+    const swSrc = path.join(process.cwd(), 'app/service-worker.js');
+    const swDest = 'dist/service-worker.js';
+    const rootDir = 'dist';
+    return injectManifest({
+      swSrc,
+      swDest,
       globDirectory: rootDir,
       globPatterns: [
         `${rootDir}/images/**/*`,
         `${rootDir}/scripts/**/*.js`,
         `${rootDir}/styles/**/*.css`,
         `${rootDir}/*.{html,json}`
-      ],
-      globIgnores: ['sw.js']
-    }))
-    .pipe(gulp.dest('dist'))
+      ]
+    }).then(resources => {
+      console.log(`Injected ${resources.count} resources for precaching, ` +
+        `totaling ${resources.size} bytes.`);
+    }).catch(err => {
+      console.log('[ERROR] This happened: ' + err);
+    });
 })
 
 // Build production files, the default task
