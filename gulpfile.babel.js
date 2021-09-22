@@ -173,10 +173,6 @@ gulp.task('serve', gulp.series('scripts', 'styles', () => {
   gulp.watch(['app/images/**/*'], reload);
 }));
 
-// Copy over the scripts that are used in importScripts as part of the generate-service-worker task.
-gulp.task('copy-sw-scripts', gulp.series(() => gulp.src(['node_modules/sw-toolbox/sw-toolbox.js', 'app/scripts/sw/runtime-caching.js'])
-    .pipe(gulp.dest('dist/scripts/sw'))));
-
 // See http://www.html5rocks.com/en/tutorials/service-worker/introduction/ for
 // an in-depth explanation of what service workers are and why you should care.
 // Generate a service worker file that will provide offline functionality for
