@@ -3,9 +3,8 @@
  * Variables
  */
 @import 'variables';
-@import '../../node_modules/getbase/src/scss/base';
-@import '../../node_modules/getbase/src/scss/base/helpers';
-
+@import "node_modules/getbase/scss/base";
+@import "node_modules/getbase/scss/base/_helpers";
 /**
  * Mixins
  */
