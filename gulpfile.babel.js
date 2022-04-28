@@ -120,7 +120,7 @@ gulp.task('scripts', gulp.series(() =>
     .pipe($.babel())
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe($.concat('main.min.js'))
-    .pipe($.uglify({ preserveComments: 'some' }))
+    .pipe($.uglify({ output : { comments: 'some' }}))
     .pipe($.size({ title: 'scripts' }))
     .pipe(gulp.dest('./dist/scripts/'))
 ));

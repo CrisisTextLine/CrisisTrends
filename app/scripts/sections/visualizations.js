@@ -32,7 +32,7 @@
       .reduce((currentLargest, currentSize) =>
         // If the current size is bigger than the largest size seen so far,
         // then return that one, otherwise return the existing largest seen so far
-         currentSize[1] > currentLargest[1] ? currentSize : currentLargest, ['desktop', width]); // Start with the smallest size to start width
+        currentSize[1] > currentLargest[1] ? currentSize : currentLargest, ['desktop', width]); // Start with the smallest size to start width
 
     return size[0];
   }

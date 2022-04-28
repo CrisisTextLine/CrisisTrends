@@ -41,7 +41,7 @@
     for (let sectionTitle in window.faq) {
       // Since we're working with a global obj, let's make sure we're not
       // screwed by accidental prototyping.
-      if (!window.faq.hasOwnProperty(sectionTitle)) {
+      if (!Object.prototype.hasOwnProperty.call(window.faq, sectionTitle)) {
         continue;
       }
 
@@ -58,7 +58,7 @@
       const _thisDestination = _thisSection.querySelectorAll('.faq-content')[0];
 
       for (let subsectionTitle in section.questions) {
-        if (!section.questions.hasOwnProperty(subsectionTitle)) {
+        if (!Object.prototype.hasOwnProperty.call(section.questions, subsectionTitle)) {
           continue;
         }
 
@@ -75,7 +75,7 @@
           _thisSubsection.querySelectorAll('h2')[0].innerHTML = subsectionTitle;
 
           for (let question in subsection) {
-            if (!subsection.hasOwnProperty(question)) {
+            if (!Object.prototype.hasOwnProperty.call(subsection, question)) {
               continue;
             }
 
