@@ -10,4 +10,4 @@
   Kaitlyn Murphy -- Product Manager
   Jared Wolf -- Media Manager
   Shayne Martin -- Software Engineer
-  Jeff Fairchild -- Lead DevOps Engineer
+  Matthew Davis -- Lead DevOps Engineer
