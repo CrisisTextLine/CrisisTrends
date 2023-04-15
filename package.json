@@ -29,7 +29,7 @@
     "gulp-useref": "^3.1.5",
     "gulp-workbox": "^1.0.2",
     "merge-stream": "^1.0.1",
-    "node-sass": "^7.0.1",
+    "node-sass": "^7.0.3",
     "require-dir": "^0.3.1",
     "run-sequence": "^2.2.1",
     "sass": "^1.40.0",
