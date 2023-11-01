@@ -16,9 +16,5 @@
         },
       },
     },
-    conversations: {
-      // count must be an integer
-      fallbackConversationCount: 5680775,
-    },
   };
 })(window);
