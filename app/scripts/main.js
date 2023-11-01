@@ -1,5 +1,4 @@
 /* global
-    getConversationCount
     renderFAQ
     bindFAQ
     bootstrapWordCloud
@@ -10,7 +9,6 @@
 
 (function() {
   attachHamburger();
-  getConversationCount();
   renderFAQ();
   bindFAQ();
   bootstrapWordCloud();
